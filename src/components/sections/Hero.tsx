@@ -57,7 +57,8 @@ function initializeHeadlineReel(headline: HeadlineReelElement) {
   // Recalculate only on resize/font readiness, never while painting frames.
   const fitHeadlineToViewport = () => {
     fitRaf = undefined;
-    const available = headline.clientWidth * 0.95 - 8;
+    const isDesktop = window.matchMedia("(min-width: 901px)").matches;
+    const available = headline.clientWidth * (isDesktop ? 0.94 : 0.95) - (isDesktop ? 18 : 8);
     if (available <= 0) return;
     const style = window.getComputedStyle(headline);
     const baseSize = parseFloat(style.fontSize);

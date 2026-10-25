@@ -111,56 +111,6 @@ button {
     clip-path 760ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.big-mama-logo-link {
-  position: fixed;
-  top: 34px;
-  left: 44px;
-  z-index: 1100;
-  display: block;
-  width: 205px;
-  height: auto;
-  cursor: pointer;
-}
-
-.big-mama-logo-link::before {
-  position: absolute;
-  inset: 10%;
-  z-index: -1;
-  border-radius: 999px;
-  background: rgba(255, 84, 0, 0.14);
-  content: "";
-  opacity: 0;
-  filter: blur(20px);
-  transform: scale(0.72);
-  transition:
-    opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.big-mama-floating-logo {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  transform-origin: center;
-  filter: drop-shadow(0 10px 18px rgba(255, 84, 0, 0.12));
-  transition:
-    transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.big-mama-logo-link:hover::before,
-.big-mama-logo-link:focus-visible::before {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.big-mama-logo-link:hover .big-mama-floating-logo,
-.big-mama-logo-link:focus-visible .big-mama-floating-logo {
-  transform: translateY(-3px) scale(1.04) rotate(-1deg);
-  filter: drop-shadow(0 14px 28px rgba(255, 84, 0, 0.28));
-}
-
 .loader.is-exiting,
 .loader.is-hidden {
   opacity: 0;
@@ -463,13 +413,13 @@ button {
 .site-header {
   position: fixed;
   top: 20px;
-  left: calc(50% + 100px);
+  left: 50%;
   z-index: 1000;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  width: min(1160px, calc(100% - 300px));
+  gap: clamp(16px, 2vw, 30px);
+  width: min(1160px, calc(100% - 32px));
   height: 76px;
   min-height: 76px;
   padding: 0 22px;
@@ -485,6 +435,21 @@ button {
     background 260ms var(--ease),
     transform 260ms var(--ease);
   animation: navEnter 760ms var(--ease) both;
+}
+
+.site-header__side {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 34px);
+}
+
+.site-header__side--left {
+  justify-content: flex-end;
+}
+
+.site-header__side--right {
+  justify-content: flex-start;
 }
 
 .site-header.is-scrolled {
@@ -551,10 +516,9 @@ button {
 
 .primary-nav {
   display: flex;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   justify-content: center;
   align-items: center;
-  gap: clamp(32px, 4vw, 58px);
   color: rgba(17, 17, 17, 0.72);
   font-size: 0.8rem;
   font-weight: 700;
@@ -645,7 +609,7 @@ button {
   transform: translateY(-50%) scale(1);
 }
 
-.primary-nav .menu-image-link {
+.site-header > .menu-image-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -655,8 +619,8 @@ button {
   line-height: 1;
 }
 
-.primary-nav .menu-image-link::before,
-.primary-nav .menu-image-link::after {
+.site-header > .menu-image-link::before,
+.site-header > .menu-image-link::after {
   display: none;
 }
 
@@ -676,8 +640,8 @@ button {
   will-change: auto;
 }
 
-.primary-nav .menu-image-link:hover,
-.primary-nav .menu-image-link:focus-visible {
+.site-header > .menu-image-link:hover,
+.site-header > .menu-image-link:focus-visible {
   transform: none;
 }
 
@@ -1060,7 +1024,7 @@ button {
   position: relative;
   z-index: 1;
   display: inline-flex;
-  width: 154px;
+  width: min(154px, 100%);
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -5176,36 +5140,12 @@ body.is-loaded .hero__content.is-visible .hero__actions .button:nth-child(2) {
 }
 
 @media (max-width: 1440px) {
-  .big-mama-logo-link {
-    top: 28px;
-    left: 32px;
-    width: clamp(148px, 10.5vw, 170px);
-  }
-
-  .hero.section-shell {
-    width: min(1180px, calc(100% - clamp(280px, 23vw, 336px)));
-    margin-right: clamp(24px, 4vw, 58px);
-    margin-left: auto;
-  }
-
   h1 {
     font-size: clamp(5.2rem, 7.3vw, 6.45rem);
   }
 }
 
 @media (max-width: 1200px) {
-  .big-mama-logo-link {
-    top: 24px;
-    left: 24px;
-    width: 120px;
-  }
-
-  .hero.section-shell {
-    width: min(1040px, calc(100% - 184px));
-    margin-right: 24px;
-    margin-left: auto;
-  }
-
   .hero {
     grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
     gap: clamp(20px, 3vw, 34px);
@@ -6000,7 +5940,7 @@ body.is-loaded .hero__content.is-visible .hero__actions .button:nth-child(2) {
 }
 
 .site-header {
-  width: min(1160px, calc(100% - clamp(300px, 20vw, 390px)));
+  width: min(1160px, calc(100% - 32px));
 }
 
 .hero {
@@ -6041,16 +5981,10 @@ h2 {
     --page-max: 1320px;
   }
 
-  .big-mama-logo-link {
-    top: 30px;
-    left: 34px;
-    width: clamp(156px, 10.5vw, 188px);
-  }
-
   .site-header {
     top: 20px;
-    left: calc(50% + clamp(62px, 5.4vw, 88px));
-    width: min(1080px, calc(100% - clamp(270px, 19vw, 350px)));
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
     height: 72px;
     min-height: 72px;
   }
@@ -6067,12 +6001,6 @@ h2 {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
     min-height: min(900px, 100vh);
     padding-top: 132px;
-  }
-
-  .hero.section-shell {
-    width: min(1220px, calc(100% - clamp(250px, 18vw, 320px)));
-    margin-right: clamp(28px, 4vw, 64px);
-    margin-left: auto;
   }
 
   h1 {
@@ -6092,15 +6020,9 @@ h2 {
     --page-max: 1220px;
   }
 
-  .big-mama-logo-link {
-    top: 28px;
-    left: 28px;
-    width: clamp(134px, 9.7vw, 158px);
-  }
-
   .site-header {
-    left: calc(50% + clamp(44px, 4.8vw, 68px));
-    width: min(1010px, calc(100% - clamp(235px, 18vw, 300px)));
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
     height: 70px;
     min-height: 70px;
     padding-inline: 18px;
@@ -6123,11 +6045,6 @@ h2 {
 
   .menu-image-link img {
     height: clamp(48px, 3.85vw, 57px);
-  }
-
-  .hero.section-shell {
-    width: min(1100px, calc(100% - clamp(210px, 17vw, 270px)));
-    margin-right: clamp(24px, 3.5vw, 50px);
   }
 
   .hero {
@@ -6163,16 +6080,10 @@ h2 {
     --page-max: 1140px;
   }
 
-  .big-mama-logo-link {
-    top: 26px;
-    left: 24px;
-    width: clamp(118px, 8.8vw, 138px);
-  }
-
   .site-header {
     top: 18px;
-    left: calc(50% + 42px);
-    width: min(960px, calc(100% - 220px));
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
     height: 66px;
     min-height: 66px;
     gap: 14px;
@@ -6198,11 +6109,6 @@ h2 {
 
   .nav-cta--efood .efood-cta-image {
     width: 104px;
-  }
-
-  .hero.section-shell {
-    width: min(1040px, calc(100% - 184px));
-    margin-right: 28px;
   }
 
   .hero {
@@ -6246,15 +6152,9 @@ h2 {
     --page-max: 1080px;
   }
 
-  .big-mama-logo-link {
-    top: 24px;
-    left: 22px;
-    width: 112px;
-  }
-
   .site-header {
-    left: calc(50% + 32px);
-    width: min(900px, calc(100% - 190px));
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
   }
 
   .primary-nav {
@@ -6264,11 +6164,6 @@ h2 {
 
   .menu-image-link img {
     height: 47px;
-  }
-
-  .hero.section-shell {
-    width: min(980px, calc(100% - 158px));
-    margin-right: 24px;
   }
 
   .hero {
@@ -6318,16 +6213,11 @@ h2 {
 
 @media (max-width: 1120px) {
   .site-header {
-    right: 16px;
-    left: auto;
-    width: min(820px, calc(100% - 164px));
-    transform: none;
+    right: auto;
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
+    transform: translateX(-50%);
     animation: navItemEnter 680ms var(--ease) 120ms both;
-  }
-
-  .hero.section-shell {
-    width: min(920px, calc(100% - 142px));
-    margin-right: 20px;
   }
 
   .hero {
@@ -6362,13 +6252,10 @@ h2 {
     --page-max: 900px;
   }
 
-  .big-mama-logo-link {
-    width: 104px;
-  }
-
   .site-header {
-    right: 14px;
-    width: min(780px, calc(100% - 148px));
+    right: auto;
+    left: 50%;
+    width: min(1160px, calc(100% - 32px));
     height: 64px;
     min-height: 64px;
   }
@@ -6380,10 +6267,6 @@ h2 {
 
   .menu-image-link img {
     height: 44px;
-  }
-
-  .hero.section-shell {
-    width: min(860px, calc(100% - 130px));
   }
 
   .hero {
@@ -6431,8 +6314,7 @@ h2 {
     scroll-margin-top: var(--mobile-nav-breathing-room);
   }
 
-  .site-header,
-  .big-mama-logo-link {
+  .site-header {
     display: none;
   }
 
@@ -6920,6 +6802,12 @@ h2 {
 .headline-reel__face--back { transform: rotateX(180deg) translateZ(var(--reel-radius)); }
 .headline-reel.is-transitioning .headline-reel__drum { will-change: transform; }
 .headline-reel.reel-instant .headline-reel__drum { transition: none !important; }
+
+@media (min-width: 901px) {
+  .headline-reel__face {
+    padding-inline: clamp(10px, 1.1vw, 18px);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .headline-reel__drum { transition: none !important; }
