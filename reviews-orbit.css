@@ -1,9 +1,150 @@
-/* Mobile-only Google review orbit. Desktop wrappers remain layout-neutral. */
-.reviews-scene,
+/* Shared Google review orbit. The controller owns slot transforms in every animated mode. */
+.reviews-deck {
+  --review-card-width: 440px;
+  --review-scene-height: clamp(390px, 32vw, 430px);
+  position: relative;
+  height: var(--review-scene-height);
+  min-height: 0;
+  overflow: visible;
+  perspective: 960px;
+  perspective-origin: 50% 44%;
+  isolation: isolate;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reviews-deck:active {
+  cursor: grabbing;
+}
+
+.reviews-scene {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
 .reviews-rig,
-.reviews-orbit,
+.reviews-orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.reviews-rig {
+  transform: none;
+}
+
 .reviews-orbit__slot {
-  display: contents;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  display: block;
+  width: 0;
+  height: 0;
+  opacity: 1;
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  backface-visibility: hidden;
+}
+
+.reviews-orbit__slot.is-active {
+  z-index: 70;
+}
+
+.reviews-orbit__slot.is-left,
+.reviews-orbit__slot.is-right {
+  z-index: 60;
+}
+
+.reviews-orbit__slot.is-depth-2 {
+  z-index: 50;
+}
+
+.reviews-orbit__slot.is-rear {
+  z-index: 40;
+}
+
+.review-card {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: calc(var(--review-card-width) / -2);
+  width: var(--review-card-width, 340px);
+  min-width: 0;
+  transform: none;
+  transition:
+    opacity 180ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+  will-change: auto;
+}
+
+.review-card,
+.review-card.is-active,
+.review-card.is-left,
+.review-card.is-right,
+.review-card.is-depth-2,
+.review-card.is-rear {
+  transform: none;
+}
+
+.reviews-deck.is-dragging .review-card,
+.reviews-deck.is-settling .review-card {
+  pointer-events: none;
+}
+
+.review-card:not(.is-active) {
+  animation: reviewOrbitFloat var(--review-float-duration, 6s) ease-in-out
+    var(--review-float-delay, 0s) infinite;
+}
+
+.reviews-deck.is-dragging .review-card,
+.reviews-deck.is-settling .review-card,
+.reviews-deck.is-paused-visibility .review-card {
+  animation-play-state: paused;
+}
+
+.reviews-deck.is-dragging .reviews-orbit__slot,
+.reviews-deck.is-settling .reviews-orbit__slot {
+  z-index: auto;
+  pointer-events: none;
+}
+
+@keyframes reviewOrbitFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 calc(var(--review-float-distance, 3px) * -1);
+  }
+}
+
+@keyframes reviewOrbitArrival {
+  0% {
+    opacity: 0.58;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.88;
+  }
 }
 
 @media (max-width: 767px) {
@@ -426,4 +567,73 @@
     overflow: hidden;
   }
 
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  .reviews-deck {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    perspective: none;
+    cursor: default;
+    user-select: text;
+  }
+
+  .reviews-scene {
+    height: auto;
+  }
+
+  .reviews-rig {
+    position: relative;
+    inset: auto;
+    height: auto;
+    pointer-events: auto;
+  }
+
+  .reviews-orbit {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    pointer-events: auto;
+  }
+
+  .reviews-orbit__slot {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+
+  .reviews-orbit__slot.is-active {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+
+  .reviews-orbit__slot:not(.is-active) {
+    order: 2;
+  }
+
+  .review-card,
+  .review-card.is-active,
+  .review-card.is-left,
+  .review-card.is-right,
+  .review-card.is-depth-2,
+  .review-card.is-rear {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    transform: none;
+    translate: none;
+    animation: none;
+    transition: none;
+  }
 }

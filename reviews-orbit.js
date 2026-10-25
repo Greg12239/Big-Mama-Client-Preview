@@ -1,7 +1,6 @@
 (() => {
   const mobileQuery = window.matchMedia("(max-width: 767px)");
   const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
 
   class ReviewOrbitController {
     constructor(deck) {
@@ -24,6 +23,7 @@
       this.maxNaturalCardHeight = 0;
       this.cardNaturalHeights = [];
       this.cardWidth = 0;
+      this.resolvedCardWidth = 0;
       this.pixelXCorrection = 0;
       this.pixelYCorrection = 0;
       this.pendingResize = false;
@@ -78,17 +78,15 @@
     }
 
     getMode() {
-      if (!mobileQuery.matches) return "desktop";
-      return reducedQuery.matches ? "reduced" : "mobile";
+      return reducedQuery.matches ? "reduced" : "orbit";
     }
 
-    isMobileInteractionMode() {
-      const mode = this.getMode();
-      return mode === "mobile" || mode === "reduced";
+    isMobileLayout() {
+      return mobileQuery.matches;
     }
 
-    isAnimatedMobileMode() {
-      return this.getMode() === "mobile";
+    isAnimatedMode() {
+      return this.getMode() === "orbit";
     }
 
     normalizeIndex(index) {
@@ -140,24 +138,14 @@
       this.syncVisualStates();
       this.syncContentStates();
 
-      if (this.getMode() === "mobile" || this.getMode() === "reduced") {
+      if (this.getMode() === "orbit" || this.getMode() === "reduced") {
         this.handleWidthChange(true);
-      } else {
-        this.deck.style.removeProperty("--review-scene-height");
-        this.deck.style.removeProperty("--review-card-anchor");
-        this.cards.forEach((card) => card.style.removeProperty("height"));
-        this.slots.forEach((slot) => {
-          slot.style.removeProperty("transform");
-          slot.style.removeProperty("opacity");
-          slot.style.removeProperty("z-index");
-          slot.style.removeProperty("will-change");
-        });
       }
     }
 
     handleWidthChange(force = false) {
       const mode = this.getMode();
-      if (mode !== "mobile" && mode !== "reduced") return;
+      if (mode !== "orbit" && mode !== "reduced") return;
       if (this.phase !== "idle") {
         this.pendingResize = true;
         return;
@@ -167,6 +155,7 @@
       const width = Math.round(initialDeckRect.width);
       if (!force && Math.abs(width - this.effectiveWidth) < 2) return;
       this.effectiveWidth = width;
+      this.applyResolvedCardWidth(width);
       this.measureAllCards();
       this.pixelXCorrection = 0;
       this.pixelYCorrection = 0;
@@ -178,7 +167,23 @@
       this.pixelXCorrection = Math.round(rawActiveLeft * dpr) / dpr - rawActiveLeft;
       const rawActiveTop = deckRect.top + this.metrics().safeTop;
       this.pixelYCorrection = Math.round(rawActiveTop * dpr) / dpr - rawActiveTop;
-      if (mode === "mobile") this.applyAllPoses(this.settledStep, this.metrics(), false);
+      if (mode === "orbit") this.applyAllPoses(this.settledStep, this.metrics(), false);
+    }
+
+    resolveCardWidth(deckWidth) {
+      if (this.isMobileLayout()) {
+        const viewportWidth = window.visualViewport?.width || window.innerWidth;
+        return Math.round(Math.min(330, Math.max(0, viewportWidth - 40)));
+      }
+
+      return Math.round(Math.min(440, Math.max(280, deckWidth - 24)));
+    }
+
+    applyResolvedCardWidth(deckWidth) {
+      const width = this.resolveCardWidth(deckWidth);
+      if (width === this.resolvedCardWidth) return;
+      this.resolvedCardWidth = width;
+      this.deck.style.setProperty("--review-card-width", `${width}px`);
     }
 
     measureAllCards() {
@@ -191,7 +196,7 @@
       ));
       this.maxNaturalCardHeight = Math.max(...this.cardNaturalHeights);
       this.cardWidth = Math.ceil(this.cards[0].offsetWidth);
-      if (this.getMode() === "mobile") {
+      if (this.getMode() === "orbit") {
         this.cards.forEach((card, index) => {
           card.style.height = `${this.cardNaturalHeights[index]}px`;
         });
@@ -227,17 +232,34 @@
     }
 
     metrics() {
-      const width = this.effectiveWidth || window.innerWidth;
+      const width = this.effectiveWidth || this.deck.getBoundingClientRect().width || window.innerWidth;
       const clamp = (min, value, max) => Math.min(max, Math.max(min, value));
-      const radiusX = clamp(210, width * 0.55, 240);
+      if (this.isMobileLayout()) {
+        return {
+          radiusX: clamp(210, width * 0.55, 240),
+          radiusY: clamp(125, width * 0.3, 132),
+          depthRadius: 24,
+          safeTop: 24,
+          scaleReduction: 0.3,
+          opacityReduction: 0.45,
+          maxYaw: 0,
+          maxRoll: 0,
+          pixelXCorrection: this.pixelXCorrection,
+          pixelYCorrection: this.pixelYCorrection,
+        };
+      }
+
+      const cardWidth = this.cardWidth || Math.min(440, width * 0.78);
+      const sideScale = 1 - ((1 - Math.cos((Math.PI * 2) / this.cards.length)) / 2) * 0.24;
+      const maxSideOffset = Math.max(0, (width - cardWidth * sideScale) / 2 - 12);
 
       return {
-        radiusX,
-        radiusY: clamp(125, width * 0.3, 132),
-        depthRadius: 24,
-        safeTop: 24,
-        scaleReduction: 0.3,
-        opacityReduction: 0.45,
+        radiusX: clamp(0, Math.min(width * 0.34, maxSideOffset / Math.sin((Math.PI * 2) / this.cards.length)), 190),
+        radiusY: clamp(82, width * 0.18, 112),
+        depthRadius: 32,
+        safeTop: 18,
+        scaleReduction: 0.24,
+        opacityReduction: 0.34,
         maxYaw: 0,
         maxRoll: 0,
         pixelXCorrection: this.pixelXCorrection,
@@ -292,7 +314,7 @@
     }
 
     applyAllPoses(step, metrics = this.metrics(), updateDetails = false) {
-      if (this.getMode() !== "mobile") return;
+      if (!this.isAnimatedMode()) return;
       this.visualStep = step;
       this.cards.forEach((card, index) => {
         this.applyPose(index, step, metrics);
@@ -319,14 +341,6 @@
 
     syncContentStates(step = this.settledStep) {
       const mode = this.getMode();
-      if (mode === "desktop") {
-        this.cards.forEach((card) => {
-          card.style.removeProperty("--review-detail-opacity");
-        });
-        this.detailOpacityValues.fill(null);
-        return;
-      }
-
       if (mode === "reduced") {
         this.cards.forEach((card) => this.setDetailOpacity(card, 1));
         return;
@@ -345,7 +359,7 @@
       this.cards.forEach((card, index) => {
         const relative = this.relativeAt(index);
         const depth = Math.abs(relative);
-        const selectable = mode === "mobile" || mode === "reduced" || depth <= 1;
+        const selectable = mode === "reduced" || depth <= 1;
         const slot = this.slots[index];
 
         card.dataset.reviewRelative = slot.dataset.reviewRelative = String(relative);
@@ -357,13 +371,13 @@
           node.classList.toggle("is-right", relative === 1);
           node.classList.toggle("is-depth-2", depth === 2);
           node.classList.toggle("is-rear", depth === Math.floor(this.cards.length / 2));
-          node.classList.toggle("is-offscreen", mode === "desktop" && depth > 1);
+          node.classList.remove("is-offscreen");
         });
 
         card.setAttribute("aria-pressed", String(depth === 0));
-        card.tabIndex = mode === "mobile" || mode === "reduced"
-          ? -1
-          : (selectable ? 0 : -1);
+        card.tabIndex = mode === "reduced"
+          ? 0
+          : (this.isMobileLayout() ? -1 : (selectable ? 0 : -1));
         card.inert = !selectable;
         if (selectable) card.removeAttribute("aria-hidden");
         else card.setAttribute("aria-hidden", "true");
@@ -396,7 +410,7 @@
         return;
       }
 
-      if (!this.isAnimatedMobileMode()) {
+      if (!this.isAnimatedMode()) {
         this.commitImmediate(target);
         return;
       }
@@ -410,7 +424,7 @@
       this.activeIndex = this.normalizeIndex(step);
       this.syncVisualStates();
       this.syncContentStates();
-      if (this.isAnimatedMobileMode()) this.applyAllPoses(step, this.metrics(), false);
+      if (this.isAnimatedMode()) this.applyAllPoses(step, this.metrics(), false);
       this.announceActive();
       this.syncStateAttributes();
     }
@@ -469,7 +483,7 @@
       const target = Math.round(targetStep);
       const distance = Math.abs(target - fromStep);
 
-      if (distance < 0.001 || !this.isAnimatedMobileMode()) {
+      if (distance < 0.001 || !this.isAnimatedMode()) {
         this.commitImmediate(target);
         return;
       }
@@ -564,7 +578,7 @@
       this.animationGeneration += 1;
       this.releaseAnimations();
       this.currentTargetStep = null;
-      if (restore && this.isAnimatedMobileMode() && this.slots) {
+      if (restore && this.isAnimatedMode() && this.slots) {
         this.applyAllPoses(this.settledStep, this.metrics(), false);
         this.syncContentStates();
       }
@@ -575,7 +589,7 @@
       this.currentTargetStep = null;
       this.visualStep = this.settledStep;
       this.activeIndex = this.normalizeIndex(this.settledStep);
-      if (this.isAnimatedMobileMode()) {
+      if (this.isAnimatedMode()) {
         this.applyAllPoses(this.settledStep, this.metrics(), false);
       }
       this.syncVisualStates();
@@ -584,7 +598,7 @@
     }
 
     triggerArrival(index) {
-      if (this.getMode() !== "mobile") return;
+      if (!this.isAnimatedMode()) return;
       if (this.arrivalTimer) window.clearTimeout(this.arrivalTimer);
       this.cards.forEach((card) => card.classList.remove("is-arriving"));
       const card = this.cards[index];
@@ -613,7 +627,7 @@
     }
 
     handlePointerDown(event) {
-      if (!this.isMobileInteractionMode() || this.phase !== "idle") return;
+      if (!this.isAnimatedMode() || this.phase !== "idle") return;
       if (event.isPrimary === false) return;
       if (event.pointerType === "mouse" && event.button !== 0) return;
 
@@ -751,13 +765,13 @@
       if (
         settle
         && pointer.axisIntent === "horizontal"
-        && this.isMobileInteractionMode()
+        && this.isAnimatedMode()
       ) {
         this.setPhase("idle");
         this.startSettle(this.settledStep, "pointer-cancel");
       } else {
         this.visualStep = this.settledStep;
-        if (this.isAnimatedMobileMode()) {
+        if (this.isAnimatedMode()) {
           this.applyAllPoses(this.settledStep, pointer.cachedMetrics || this.metrics(), false);
         }
         this.syncContentStates();
@@ -823,18 +837,6 @@
         { signal },
       );
       window.addEventListener("blur", () => this.cancelPointer(true), { signal });
-
-      this.cards.forEach((card, index) => {
-        card.addEventListener("pointerenter", () => {
-          if (
-            hoverQuery.matches
-            && this.getMode() === "desktop"
-            && Math.abs(this.relativeAt(index)) === 1
-          ) {
-            this.requestTarget(index, "hover");
-          }
-        }, { signal });
-      });
 
       mobileQuery.addEventListener?.("change", () => this.handleModeChange(), { signal });
       reducedQuery.addEventListener?.("change", () => this.handleModeChange(), { signal });
