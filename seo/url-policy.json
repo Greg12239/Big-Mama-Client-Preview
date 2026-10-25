@@ -1,0 +1,45 @@
+{
+  "approvedValues": {
+    "canonicalHomeUrl": null,
+    "preferredHostname": null,
+    "productionOrigin": null
+  },
+  "blockedBy": [
+    "production_origin",
+    "preferred_hostname",
+    "https_status",
+    "canonical_home_url"
+  ],
+  "productionEligible": false,
+  "rules": {
+    "alternateHostname": "PERMANENT_REDIRECT_TO_PREFERRED_HOST",
+    "customDomain": "MUST_MATCH_APPROVED_ORIGIN",
+    "fragments": "NEVER_CANONICAL_IDENTIFIERS",
+    "githubPagesPreview": "NOINDEX_OR_NON_PRODUCTION_ONLY",
+    "httpToHttps": "PERMANENT_REDIRECT_REQUIRED",
+    "httpsOnly": "REQUIRED_AFTER_ORIGIN_APPROVAL",
+    "indexHtmlNormalization": "REDIRECT_TO_CANONICAL_PATH",
+    "parity": [
+      "canonical",
+      "Open Graph URL",
+      "schema URLs",
+      "sitemap URLs",
+      "internal absolute URLs"
+    ],
+    "queryParameters": "SELF_CANONICALIZE_ONLY_WHEN_CONTENT_DISTINCT; OTHERWISE_CANONICAL_BASE_URL",
+    "stagingPreview": "NOINDEX_AND_ACCESS_CONTROL_WHERE_APPROPRIATE",
+    "trailingSlash": "USER_DECISION_REQUIRED",
+    "wwwPreference": "USER_DECISION_REQUIRED"
+  },
+  "schemaVersion": "1.0.0",
+  "status": "USER_DECISION_REQUIRED",
+  "validatorFailures": [
+    "canonical origin mismatch",
+    "schema URL mismatch",
+    "sitemap URL mismatch",
+    "Open Graph URL mismatch",
+    "unapproved internal absolute origin",
+    "HTTP canonical",
+    "alternate-host canonical"
+  ]
+}

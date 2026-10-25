@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "format": "JSON-LD",
+  "previewOnly": true,
+  "allowedTypes": ["WebSite", "WebPage", "Restaurant", "Place", "PostalAddress", "GeoCoordinates", "Menu", "MenuSection", "MenuItem", "ImageObject"],
+  "conditionalTypes": {
+    "WebSite": "Requires verified production origin.",
+    "WebPage": "Requires verified production origin and canonical URL.",
+    "ImageObject": "Requires verified absolute public image URL.",
+    "Place": "Use only for a distinct place entity; omit when Restaurant already represents the same physical location."
+  },
+  "prohibitedTypes": {
+    "AggregateRating": "No verified aggregate review count and rating source is approved for schema.",
+    "Review": "Visible review text has not been independently verified for publication as schema.",
+    "Offer": "No verified prices, currency, availability, or offer URLs.",
+    "Product": "Restaurant dishes are modeled as MenuItem unless a real product-commerce use case is approved.",
+    "FAQPage": "Not recommended for Google rich-result benefit on this commercial restaurant site; no automatic FAQ schema.",
+    "HowTo": "Deprecated for Google rich results."
+  },
+  "rules": ["Only VERIFIED source fields may enter production-eligible previews.", "Unknown optional fields are omitted.", "Unknown required production fields block integration.", "No placeholders are emitted as data values.", "Big Tokyo is excluded until its availability contradiction is resolved.", "WebSite, WebPage, public @id, canonical URL, and ImageObject are omitted until their absolute URLs are verified.", "Do not duplicate Restaurant with Organization or a Place node for the same physical entity."],
+  "productionReadiness": {
+    "status": "SETUP_REQUIRED",
+    "productionOrigin": null,
+    "socialImageUrl": null,
+    "websiteIntegrationAuthorized": false
+  },
+  "integrationStatus": "PROHIBITED"
+}

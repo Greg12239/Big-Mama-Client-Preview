@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "records": [
+    {"id": "citation:google-maps", "platform": "Google Maps", "url": "https://www.google.com/maps/place/Big+Mama+Burgers+n%27+Fries/@38.0331785,23.7426529,15z/data=!4m8!3m7!1s0x14a1a30032ac5caf:0x1dd5a61efd0f5935!8m2!3d38.0349902!4d23.7386331!9m1!1b1!16s%2Fg%2F11y06nrmlf", "verificationStatus": "OBSERVED", "source": "index.html", "napChecked": false},
+    {"id": "citation:wolt", "platform": "Wolt", "url": "https://wolt.com/el/grc/athens/restaurant/big-mamma-ath", "verificationStatus": "OBSERVED", "source": "index.html", "napChecked": false},
+    {"id": "citation:efood", "platform": "efood", "url": "https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071", "verificationStatus": "OBSERVED", "source": "index.html", "napChecked": false}
+  ],
+  "unverifiedTargets": ["Apple Business Connect", "Bing Places", "Foursquare", "TripAdvisor"],
+  "externalVerificationStatus": "SETUP_REQUIRED"
+}

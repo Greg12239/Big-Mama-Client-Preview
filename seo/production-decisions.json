@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "PASS_WITH_SETUP_REQUIRED",
+  "deploymentReady": false,
+  "decisions": {
+    "productionOrigin": {
+      "value": null,
+      "verificationStatus": "SETUP_REQUIRED",
+      "requiredEvidence": [
+        "User-confirmed HTTPS production origin",
+        "Matching deployed hostname or hosting configuration"
+      ],
+      "blockedOutputs": [
+        "canonical URL",
+        "sitemap URL entries",
+        "robots sitemap directive",
+        "public schema @id values",
+        "WebSite and WebPage schema entities"
+      ]
+    },
+    "socialImage": {
+      "absoluteUrl": null,
+      "verificationStatus": "SETUP_REQUIRED",
+      "candidateImageIds": [
+        "image:hero-food",
+        "image:brand-logo",
+        "image:campaign-crew",
+        "image:mama-in-paris"
+      ],
+      "requiredEvidence": [
+        "Approved image candidate",
+        "Verified production origin",
+        "Verified absolute public image URL"
+      ],
+      "productionAssetGenerationAuthorized": false
+    },
+    "crawlerPolicy": {
+      "verificationStatus": "SETUP_REQUIRED",
+      "searchIndexingDecision": "PLANNING_ONLY",
+      "aiSearchDecision": "UNDECIDED",
+      "aiTrainingDecision": "UNDECIDED",
+      "productionRobotsAuthorized": false
+    },
+    "websiteIntegration": {
+      "status": "PROHIBITED",
+      "requiredApprovalPhrase": "APPROVED — ALLOW SEO INTEGRATION INTO WEBSITE"
+    }
+  },
+  "forbiddenFallbacks": [
+    "example.com",
+    ".example",
+    "localhost",
+    "127.0.0.1",
+    "file://",
+    "guessed hostname"
+  ]
+}

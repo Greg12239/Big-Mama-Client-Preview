@@ -1,0 +1,161 @@
+{
+  "externalOutreachAuthorized": false,
+  "opportunityClasses": [
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "local press"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "neighborhood publications"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "food publications"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "suppliers"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "business associations"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "local events"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "sponsorships"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "community initiatives"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "relevant directories"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "delivery platforms"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "map/business platforms"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "genuine creator coverage"
+    },
+    {
+      "contactRoute": null,
+      "legitimacyEvidence": "USER_DECISION_REQUIRED",
+      "measurement": "Qualified referral, citation accuracy and audience value",
+      "nofollowSponsoredExpectation": "Evaluate per relationship",
+      "relevance": "Requires real relationship or audience fit",
+      "risk": "Do not imply endorsement or pay for ranking links",
+      "specificTarget": null,
+      "status": "SETUP_REQUIRED",
+      "targetClass": "partnerships"
+    }
+  ],
+  "productionEligible": false,
+  "prohibited": [
+    "purchased ranking links",
+    "private blog networks",
+    "automated directory blasts",
+    "irrelevant guest posts",
+    "reciprocal schemes",
+    "fake press or awards",
+    "mass AI outreach",
+    "exact-match anchor manipulation"
+  ],
+  "schemaVersion": "1.0.0",
+  "status": "READINESS_ONLY"
+}

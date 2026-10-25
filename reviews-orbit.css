@@ -1,0 +1,429 @@
+/* Mobile-only Google review orbit. Desktop wrappers remain layout-neutral. */
+.reviews-scene,
+.reviews-rig,
+.reviews-orbit,
+.reviews-orbit__slot {
+  display: contents;
+}
+
+@media (max-width: 767px) {
+  .reviews-feature-card {
+    display: grid;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .reviews-feature-card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .reviews-feature-card__header {
+    width: 100%;
+    max-width: none;
+    padding-inline: clamp(18px, 5vw, 24px);
+  }
+
+  .reviews-feature-card__controls {
+    display: block;
+  }
+
+  .reviews-deck {
+    --review-card-width: min(330px, calc(100vw - 40px));
+    --review-scene-height: 640px;
+    position: relative;
+    width: 100vw;
+    min-height: 0;
+    height: var(--review-scene-height);
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    overflow: clip;
+    background: rgba(255, 255, 255, 0.001);
+    perspective: 960px;
+    perspective-origin: 50% 44%;
+    isolation: isolate;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .reviews-deck:active {
+    cursor: grabbing;
+  }
+
+  .reviews-deck::before {
+    display: none;
+  }
+
+  .reviews-scene {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transform-style: preserve-3d;
+    isolation: isolate;
+  }
+
+  .reviews-scene::before,
+  .reviews-scene::after {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+  }
+
+  .reviews-scene::before {
+    inset: 0 -8%;
+    border-radius: 0;
+    background:
+      radial-gradient(ellipse 100% 48% at 50% 28%, rgba(255, 84, 0, 0.1) 0%, rgba(255, 84, 0, 0.052) 30%, rgba(255, 84, 0, 0.018) 49%, transparent 72%);
+    filter: none;
+    opacity: 1;
+  }
+
+  .reviews-scene::after {
+    right: 13%;
+    bottom: 5%;
+    left: 13%;
+    height: 8%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(17, 17, 17, 0.2), transparent 70%);
+    filter: blur(8px);
+    opacity: 0.44;
+  }
+
+  .reviews-rig,
+  .reviews-orbit {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    transform-style: preserve-3d;
+    pointer-events: none;
+  }
+
+  .reviews-rig {
+    transform: none;
+  }
+
+  .reviews-orbit__slot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform-origin: 0 0;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    backface-visibility: hidden;
+  }
+
+  .reviews-orbit__slot.is-active {
+    z-index: 70;
+  }
+
+  .reviews-orbit__slot.is-left,
+  .reviews-orbit__slot.is-right {
+    z-index: 60;
+  }
+
+  .reviews-orbit__slot.is-depth-2 {
+    z-index: 50;
+  }
+
+  .reviews-orbit__slot.is-rear {
+    z-index: 40;
+  }
+
+  .reviews-orbit__slot {
+    pointer-events: auto;
+  }
+
+  .review-card {
+    pointer-events: auto;
+  }
+
+  .review-card,
+  .review-card.is-active,
+  .review-card.is-left,
+  .review-card.is-right,
+  .review-card.is-depth-2,
+  .review-card.is-rear {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: calc(var(--review-card-width) / -2);
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+    width: var(--review-card-width);
+    height: auto;
+    min-height: 0;
+    padding: 18px;
+    border: 1px solid rgba(255, 84, 0, 0.3);
+    border-radius: 24px;
+    background: linear-gradient(145deg, #fffefd, #fff8f4);
+    box-shadow:
+      0 22px 52px rgba(17, 17, 17, 0.15),
+      0 0 30px rgba(255, 84, 0, 0.13);
+    opacity: 1;
+    transform: none;
+    transform-origin: 50% 50%;
+    transition:
+      opacity 180ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+    backface-visibility: hidden;
+    will-change: auto;
+  }
+
+  .review-card::before {
+    inset: -8px;
+    box-shadow: none;
+    opacity: 0;
+  }
+
+  .review-card.is-active {
+    z-index: 2;
+    border-color: rgba(255, 84, 0, 0.38);
+    box-shadow:
+      0 22px 44px rgba(17, 17, 17, 0.15),
+      0 7px 16px rgba(17, 17, 17, 0.065),
+      0 0 18px rgba(255, 84, 0, 0.09);
+    opacity: 1;
+    transform: none;
+  }
+
+  .review-card:not(.is-active) {
+    border-color: rgba(255, 84, 0, 0.16);
+    box-shadow:
+      0 14px 30px rgba(17, 17, 17, 0.11),
+      0 3px 8px rgba(17, 17, 17, 0.04),
+      0 0 12px rgba(255, 84, 0, 0.04);
+  }
+
+  .review-card:not(.is-active) .review-card__meta,
+  .review-card:not(.is-active) .review-card__rating-row,
+  .review-card:not(.is-active) .review-card__text {
+    visibility: visible;
+  }
+
+  .review-card:not(.is-active) .review-card__top {
+    opacity: 0.96;
+  }
+
+  .review-card__meta,
+  .review-card__rating-row,
+  .review-card__text {
+    opacity: var(--review-detail-opacity, 1);
+  }
+
+  .review-card__avatar {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .review-card__top {
+    gap: 12px;
+  }
+
+  .review-card__name {
+    font-size: clamp(1rem, 4.4vw, 1.14rem);
+  }
+
+  .review-card__meta {
+    font-size: 0.72rem;
+  }
+
+  .review-card__rating-row {
+    gap: 7px 10px;
+  }
+
+  .review-card__stars {
+    font-size: 1.1rem;
+  }
+
+  .review-card__date {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
+
+  .review-card__text {
+    display: block;
+    overflow: visible;
+    color: rgba(17, 17, 17, 0.76);
+    font-size: clamp(0.81rem, 3.45vw, 0.88rem);
+    font-weight: 620;
+    line-height: 1.46;
+    -webkit-line-clamp: unset;
+  }
+
+  .reviews-deck.is-dragging .review-card,
+  .reviews-deck.is-settling .review-card {
+    pointer-events: none;
+  }
+
+  .review-card:not(.is-active) {
+    animation: reviewOrbitFloat var(--review-float-duration, 6s) ease-in-out
+      var(--review-float-delay, 0s) infinite;
+  }
+
+  .reviews-deck.is-dragging .review-card,
+  .reviews-deck.is-settling .review-card,
+  .reviews-deck.is-paused-visibility .review-card {
+    animation-play-state: paused;
+  }
+
+  .reviews-deck.is-dragging .reviews-orbit__slot,
+  .reviews-deck.is-settling .reviews-orbit__slot {
+    z-index: auto;
+    pointer-events: none;
+  }
+
+  .review-card:focus-visible {
+    outline: 3px solid rgba(255, 84, 0, 0.7);
+    outline-offset: 4px;
+  }
+
+  .reviews-deck:focus-visible {
+    outline: none;
+  }
+
+  .reviews-deck:focus-visible .review-card.is-active {
+    outline: 3px solid rgba(255, 84, 0, 0.7);
+    outline-offset: 4px;
+  }
+
+  .review-card.is-arriving::before {
+    animation: reviewOrbitArrival 200ms ease-out both;
+  }
+
+  @keyframes reviewOrbitFloat {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+
+    50% {
+      translate: 0 calc(var(--review-float-distance, 3px) * -1);
+    }
+  }
+
+  @keyframes reviewOrbitArrival {
+    0% {
+      opacity: 0.58;
+    }
+
+    45% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.88;
+    }
+  }
+
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .reviews-deck {
+    width: 100%;
+    height: var(--review-scene-height);
+    margin-left: 0;
+    padding-inline: clamp(18px, 5vw, 24px);
+    overflow: visible;
+    perspective: none;
+    cursor: default;
+    touch-action: pan-y;
+  }
+
+  .reviews-scene {
+    height: 100%;
+  }
+
+  .reviews-scene::before,
+  .reviews-scene::after {
+    display: none;
+  }
+
+  .reviews-rig {
+    position: relative;
+    inset: auto;
+    display: block;
+    height: 100%;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .reviews-orbit {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .reviews-orbit__slot {
+    position: static;
+    display: none;
+    width: auto;
+    height: auto;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reviews-orbit__slot.is-active,
+  .reviews-orbit__slot.is-left,
+  .reviews-orbit__slot.is-right,
+  .reviews-orbit__slot.is-depth-2,
+  .reviews-orbit__slot.is-rear {
+    display: block;
+  }
+
+  .reviews-orbit__slot.is-active {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+
+  .reviews-orbit__slot:not(.is-active) {
+    order: 2;
+  }
+
+  .review-card,
+  .review-card.is-active,
+  .review-card:not(.is-active) {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+    translate: none;
+    animation: none;
+  }
+
+  .reviews-orbit__slot:not(.is-active) .review-card {
+    height: 92px;
+    min-height: 92px;
+    padding: 14px;
+    overflow: hidden;
+  }
+
+}

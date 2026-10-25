@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "INTENT_ONLY_PREVIEW",
+  "method": "Provisional intent grouping without live SERP-overlap evidence. These clusters are planning inputs, not validated semantic clusters.",
+  "clusters": [
+    {
+      "id": "cluster:brand-navigation",
+      "name": "Brand and navigation",
+      "queryIds": ["q-en-brand", "q-el-brand", "q-en-directions", "q-el-directions"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "maps", "knowledge-panel"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:local-discovery",
+      "name": "Local burger discovery",
+      "queryIds": ["q-en-burgers-local", "q-el-burgers-local", "q-en-near-me", "q-el-near-me"],
+      "targetEntity": "location:nea-filadelfia",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:ordering-delivery",
+      "name": "Ordering and delivery",
+      "queryIds": ["q-el-burger-delivery", "q-en-order", "q-el-order", "q-en-wolt", "q-el-efood"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "delivery-platform"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:burgers",
+      "name": "Burger products",
+      "queryIds": ["q-en-chicken", "q-el-chicken", "q-en-limited", "q-el-limited"],
+      "targetEntity": "menu:big-mama",
+      "targetSearchSurfaces": ["organic", "images"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:sides-desserts",
+      "name": "Fries and cookies",
+      "queryIds": ["q-en-fries", "q-el-fries", "q-en-cookie", "q-el-cookie"],
+      "targetEntity": "menu:big-mama",
+      "targetSearchSurfaces": ["organic", "images"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:menu-categories",
+      "name": "Menu and categories",
+      "queryIds": ["q-en-menu", "q-el-menu"],
+      "targetEntity": "menu:big-mama",
+      "targetSearchSurfaces": ["organic", "maps"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:hours",
+      "name": "Opening hours",
+      "queryIds": ["q-en-hours", "q-el-hours"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:reviews-comparison",
+      "name": "Reviews and comparison",
+      "queryIds": ["q-en-reviews", "q-el-reviews", "q-en-comparison", "q-el-comparison"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "validationStatus": "SETUP_REQUIRED"
+    },
+    {
+      "id": "cluster:information",
+      "name": "Brand information",
+      "queryIds": ["q-en-information", "q-el-information"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "ai-search"],
+      "validationStatus": "SETUP_REQUIRED"
+    }
+  ],
+  "serpOverlapValidation": "SETUP_REQUIRED",
+  "metrics": {
+    "searchVolume": null,
+    "keywordDifficulty": null,
+    "ranking": null
+  },
+  "publicationStatus": "PLANNING_ONLY"
+}

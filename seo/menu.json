@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0.0",
+  "menuId": "menu:big-mama",
+  "source": {"path": "index.html", "sha256": "56dcb0e68aee94cefe9f1dd07af1e25e92be11041a51a21cc446914a9bdd2534", "extractedAt": "2026-07-14"},
+  "categories": [
+    {"id": "beef", "name": "BEEF Burgers", "position": 1},
+    {"id": "chicken", "name": "CHICKEN Burgers", "position": 2},
+    {"id": "limited", "name": "LIMITED", "position": 3},
+    {"id": "fries", "name": "FRIES", "position": 4},
+    {"id": "cookies", "name": "COOKIES", "position": 5}
+  ],
+  "products": [
+    {
+      "id": "product:mamas-original-single", "categoryId": "beef", "position": 1,
+      "name": "Mama's Original Single",
+      "description": "Single smashed beef, soft bun, house sauce, crisp lettuce, and Big Mama balance.",
+      "ingredients": ["Smashed beef", "Big Mama sauce", "Soft bun"],
+      "images": [{"path": "public/assets/menu/mamas-original-single.png", "alt": "Mama's Original Single burger", "width": 1331, "height": 1027}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:bacon-lovers-double", "categoryId": "beef", "position": 2,
+      "name": "Bacon Lovers Double Burger",
+      "description": "Double smashed beef, melted cheese, bacon crunch, and rich street-level heat.",
+      "ingredients": ["Smashed beef", "Crispy bacon", "Melted cheese"],
+      "images": [{"path": "public/assets/menu/bacon-lovers-double.png", "alt": "Bacon Lovers Double Burger", "width": 1456, "height": 941}],
+      "availability": null, "limited": false, "featured": true, "visibleBadge": "Best seller", "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:truffle-oh-mama-double", "categoryId": "beef", "position": 3,
+      "name": "Truffle Oh Mama Double Burger",
+      "description": "Double beef, crispy texture, creamy truffle energy, and a deep savory finish.",
+      "ingredients": ["Smashed beef", "Crispy onions", "Truffle sauce"],
+      "images": [{"path": "public/assets/menu/truffle-oh-mama-double.png", "alt": "Truffle Oh Mama Double Burger", "width": 1295, "height": 1025}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:lava-mam-chicken", "categoryId": "chicken", "position": 1,
+      "name": "Lava Mam' Chicken",
+      "description": "Crispy chicken, spicy lava sauce, fresh lettuce, pickles, and Big Mama heat.",
+      "ingredients": ["Crispy chicken", "Lava sauce", "Fresh lettuce"],
+      "images": [{"path": "public/assets/menu/lava-mam-chicken.png", "alt": "Lava Mam' Chicken burger", "width": 1456, "height": 941}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:big-tokyo", "categoryId": "chicken", "position": 2,
+      "name": "Big Tokyo",
+      "description": "Crispy chicken, teriyaki glaze, fresh crunch, and Tokyo street-food energy.",
+      "ingredients": ["Crispy chicken", "Teriyaki glaze", "Fresh crunch"],
+      "images": [
+        {"path": "public/assets/menu/big-tokyo-transition.png", "alt": "Big Tokyo Transition chicken burger", "width": 1086, "height": 1448},
+        {"path": "public/assets/menu/big-tokyo.png", "alt": "Big Tokyo chicken burger", "width": 1086, "height": 1448}
+      ],
+      "availability": null, "limited": false, "featured": true, "visibleBadge": "COMING SOON", "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "BLOCKED_CONTRADICTION", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14",
+      "contradictions": ["COMING SOON is displayed while Order now and provider links are enabled."]
+    },
+    {
+      "id": "product:truffle-parmesan-chicken", "categoryId": "chicken", "position": 3,
+      "name": "Truffle Parmesan Chicken",
+      "description": "Crispy chicken, truffle parmesan cream, golden crunch, and a rich savory finish.",
+      "ingredients": ["Crispy chicken", "Truffle parmesan", "Golden crunch"],
+      "images": [{"path": "public/assets/menu/truffle-parmesan-chicken.png", "alt": "Truffle Parmesan Chicken burger", "width": 1456, "height": 941}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:mama-in-paris", "categoryId": "limited", "position": 1,
+      "name": "Mama in Paris",
+      "description": "The Ψωμάκι brioche με διπλό μπιφτέκι από 100% μοσχαρίσιο κιμά, διπλό cheddar, french crispy onions & truffle mayo sauce",
+      "ingredients": ["Brioche", "100% μοσχαρίσιο", "Double cheddar", "French crispy onions", "Truffle mayo"],
+      "images": [{"path": "public/assets/menu/mama-in-paris.jpg", "alt": "Mama in Paris burger with brioche bun, double beef patty, cheddar, crispy onions and truffle mayo", "width": 1366, "height": 768}],
+      "availability": null, "limited": true, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:big-mama-fries", "categoryId": "fries", "position": 1,
+      "name": "Big Mama Fries", "description": "Fresh Hand cut fries", "ingredients": ["Fresh", "Hand cut fries"],
+      "images": [{"path": "public/assets/menu/big-mama-fries.jpg", "alt": "Big Mama Fries fresh hand cut fries", "width": 1280, "height": 960}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    },
+    {
+      "id": "product:original-double-choco-cookie", "categoryId": "cookies", "position": 1,
+      "name": "Original Double Choco Cookie", "description": "With butter, egg, cocoa, white sugar & double chocolate",
+      "ingredients": ["Butter", "Egg", "Cocoa", "White sugar", "Double chocolate"],
+      "images": [{"path": "public/assets/menu/original-double-choco-cookie.jpg", "alt": "Original Double Choco Cookie with cocoa and double chocolate", "width": 1280, "height": 960}],
+      "availability": null, "limited": false, "featured": false, "orderState": "ORDER_NOW_VISIBLE",
+      "providerIds": ["wolt", "efood"], "structuredDataEligibility": "ELIGIBLE_WITHOUT_OFFER", "verificationStatus": "VERIFIED", "lastVerifiedAt": "2026-07-14"
+    }
+  ],
+  "providers": {
+    "wolt": {"name": "Wolt", "url": "https://wolt.com/el/grc/athens/restaurant/big-mamma-ath", "verificationStatus": "VERIFIED"},
+    "efood": {"name": "efood", "url": "https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071", "verificationStatus": "VERIFIED"}
+  },
+  "prohibitedUnknowns": {"prices": null, "offers": null, "stock": null, "allergens": null, "nutrition": null}
+}

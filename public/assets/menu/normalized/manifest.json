@@ -1,0 +1,1014 @@
+{
+  "canvas": {
+    "width": 1600,
+    "height": 1200,
+    "aspect_ratio": "4:3",
+    "colour_space": "sRGB"
+  },
+  "universal_safe_area": {
+    "left": 160,
+    "top": 120,
+    "right": 1440,
+    "bottom": 1020
+  },
+  "output_format": "WebP quality=95 method=6",
+  "assets": [
+    {
+      "id": "classic-cheese-burger",
+      "source_file": "public/assets/menu/classic cheese burger.png",
+      "source_sha256": "6e6d2c580d5f32bdeda1309d69237b6e686f0b783185e4e7ef34cdf4077f6bc1",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        272,
+        162,
+        1526,
+        774
+      ],
+      "manual_crop_bounds": [
+        250,
+        140,
+        1550,
+        800
+      ],
+      "crop_dimensions": [
+        1300,
+        660
+      ],
+      "scale_factor": 0.953846,
+      "placement": {
+        "x": 180,
+        "y": 285,
+        "width": 1240,
+        "height": 630
+      },
+      "final_rendered_bounds": [
+        200,
+        306,
+        1397,
+        891
+      ],
+      "output_file": "public/assets/menu/normalized/classic-cheese-burger.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 200656
+    },
+    {
+      "id": "bacon-lovers-double",
+      "source_file": "public/assets/menu/bacon-lovers-double.png",
+      "source_sha256": "ce6202c50ba217d47fe60f04f2a186fbcf886f0b77ad054af66f1c2c476edf19",
+      "source_dimensions": [
+        1456,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        90,
+        77,
+        1365,
+        874
+      ],
+      "manual_crop_bounds": [
+        70,
+        58,
+        1384,
+        894
+      ],
+      "crop_dimensions": [
+        1314,
+        836
+      ],
+      "scale_factor": 0.898021,
+      "placement": {
+        "x": 210,
+        "y": 224,
+        "width": 1180,
+        "height": 751
+      },
+      "final_rendered_bounds": [
+        228,
+        240,
+        1373,
+        957
+      ],
+      "output_file": "public/assets/menu/normalized/bacon-lovers-double.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 290308
+    },
+    {
+      "id": "truffle-oh-mama-double",
+      "source_file": "public/assets/menu/truffle-oh-mama-double.png",
+      "source_sha256": "1100268152fe03b5d60f64e1951275acac89e57b88587d92c8d7f6bc6bfb7d07",
+      "source_dimensions": [
+        1295,
+        1025
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        80,
+        92,
+        1216,
+        926
+      ],
+      "manual_crop_bounds": [
+        60,
+        75,
+        1234,
+        945
+      ],
+      "crop_dimensions": [
+        1174,
+        870
+      ],
+      "scale_factor": 0.954003,
+      "placement": {
+        "x": 240,
+        "y": 186,
+        "width": 1120,
+        "height": 829
+      },
+      "final_rendered_bounds": [
+        258,
+        202,
+        1343,
+        1002
+      ],
+      "output_file": "public/assets/menu/normalized/truffle-oh-mama-double.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 222658
+    },
+    {
+      "id": "mamas-original-single",
+      "source_file": "public/assets/menu/mamas-original-single.png",
+      "source_sha256": "4ed8ed540dbee41a6ed57a5470f97acb7f5ce1237133c2ce232167fa5a86808e",
+      "source_dimensions": [
+        1331,
+        1027
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        87,
+        103,
+        1268,
+        884
+      ],
+      "manual_crop_bounds": [
+        66,
+        84,
+        1285,
+        905
+      ],
+      "crop_dimensions": [
+        1219,
+        821
+      ],
+      "scale_factor": 0.918786,
+      "placement": {
+        "x": 240,
+        "y": 223,
+        "width": 1120,
+        "height": 754
+      },
+      "final_rendered_bounds": [
+        259,
+        240,
+        1340,
+        957
+      ],
+      "output_file": "public/assets/menu/normalized/mamas-original-single.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 200316,
+      "manual_review": "Connected neutral empty background is removed manually; food, packaging, and shadow pixels are retained."
+    },
+    {
+      "id": "mama-in-paris",
+      "source_file": "public/assets/menu/Mama in Paris.png",
+      "source_sha256": "a478b5834479c8d579a80c652011ebe0f5ef688d756a6ec0381cb71d58ecd42a",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        136,
+        177,
+        1561,
+        769
+      ],
+      "manual_crop_bounds": [
+        120,
+        155,
+        1578,
+        790
+      ],
+      "crop_dimensions": [
+        1458,
+        635
+      ],
+      "scale_factor": 0.85048,
+      "placement": {
+        "x": 180,
+        "y": 330,
+        "width": 1240,
+        "height": 540
+      },
+      "final_rendered_bounds": [
+        193,
+        347,
+        1406,
+        852
+      ],
+      "output_file": "public/assets/menu/normalized/mama-in-paris.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 158758
+    },
+    {
+      "id": "big-tokyo",
+      "source_file": "public/assets/menu/big-tokyo.png",
+      "source_sha256": "67ff362cc944649e0e5730e445a9ef2085a2278c309310dfd89ccb93f938d340",
+      "source_dimensions": [
+        1123,
+        1401
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        0,
+        396,
+        1123,
+        1368
+      ],
+      "manual_crop_bounds": [
+        0,
+        330,
+        1123,
+        1401
+      ],
+      "crop_dimensions": [
+        1123,
+        1071
+      ],
+      "scale_factor": 0.784506,
+      "placement": {
+        "x": 360,
+        "y": 150,
+        "width": 881,
+        "height": 840
+      },
+      "final_rendered_bounds": [
+        359,
+        201,
+        1243,
+        964
+      ],
+      "output_file": "public/assets/menu/normalized/big-tokyo.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 226144,
+      "manual_review": "Full source width retained because composition reaches both edges."
+    },
+    {
+      "id": "crispy-mam",
+      "source_file": "public/assets/menu/CRISPY MAM.png",
+      "source_sha256": "473053d34f5ab1e4b71c5c4d9e17bcbb2804e49448f6ecadbb11a32da4b4767a",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        244,
+        105,
+        1402,
+        848
+      ],
+      "manual_crop_bounds": [
+        220,
+        80,
+        1426,
+        870
+      ],
+      "crop_dimensions": [
+        1206,
+        790
+      ],
+      "scale_factor": 0.945274,
+      "placement": {
+        "x": 230,
+        "y": 226,
+        "width": 1140,
+        "height": 747
+      },
+      "final_rendered_bounds": [
+        252,
+        249,
+        1347,
+        952
+      ],
+      "output_file": "public/assets/menu/normalized/crispy-mam.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 250890
+    },
+    {
+      "id": "lava-mam-chicken",
+      "source_file": "public/assets/menu/lava-mam-chicken.png",
+      "source_sha256": "b9725b4b9b39584e6ee112bac5f37777e5f20f5a2b15657a299961f4ec58e69a",
+      "source_dimensions": [
+        1656,
+        950
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        201,
+        83,
+        1461,
+        950
+      ],
+      "manual_crop_bounds": [
+        180,
+        62,
+        1480,
+        950
+      ],
+      "crop_dimensions": [
+        1300,
+        888
+      ],
+      "scale_factor": 0.892308,
+      "placement": {
+        "x": 220,
+        "y": 204,
+        "width": 1160,
+        "height": 793
+      },
+      "final_rendered_bounds": [
+        239,
+        222,
+        1363,
+        997
+      ],
+      "output_file": "public/assets/menu/normalized/lava-mam-chicken.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 272572,
+      "manual_review": "Source bottom edge retained."
+    },
+    {
+      "id": "truffle-parmesan-chicken",
+      "source_file": "public/assets/menu/truffle-parmesan-chicken.png",
+      "source_sha256": "f60790c916a23fb7d931c61903a92529d62091721084aebe1bf4bd0d3627b147",
+      "source_dimensions": [
+        1659,
+        948
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        214,
+        101,
+        1456,
+        845
+      ],
+      "manual_crop_bounds": [
+        200,
+        80,
+        1470,
+        870
+      ],
+      "crop_dimensions": [
+        1270,
+        790
+      ],
+      "scale_factor": 0.913386,
+      "placement": {
+        "x": 220,
+        "y": 240,
+        "width": 1160,
+        "height": 721
+      },
+      "final_rendered_bounds": [
+        232,
+        259,
+        1368,
+        939
+      ],
+      "output_file": "public/assets/menu/normalized/truffle-parmesan-chicken.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 228880
+    },
+    {
+      "id": "crispy-chicken-strips",
+      "source_file": "public/assets/menu/APPETIZER 1.png",
+      "source_sha256": "63f3492bdb9522beb80517873f87e3a6bcc8d9edf813314ff0ccefc9c8bdb901",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        272,
+        163,
+        1499,
+        785
+      ],
+      "manual_crop_bounds": [
+        240,
+        140,
+        1530,
+        808
+      ],
+      "crop_dimensions": [
+        1290,
+        668
+      ],
+      "scale_factor": 0.930233,
+      "placement": {
+        "x": 200,
+        "y": 290,
+        "width": 1200,
+        "height": 621
+      },
+      "final_rendered_bounds": [
+        229,
+        311,
+        1376,
+        890
+      ],
+      "output_file": "public/assets/menu/normalized/crispy-chicken-strips.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 174496
+    },
+    {
+      "id": "big-mama-fries",
+      "source_file": "public/assets/menu/big-mama-fries.jpg",
+      "source_sha256": "e136aa9c96b121eb1b999fe386356f46df822c743cc004f1c82f08cf1dda2bbc",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "source_format": "JPEG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        323,
+        74,
+        967,
+        924
+      ],
+      "manual_crop_bounds": [
+        300,
+        55,
+        990,
+        940
+      ],
+      "crop_dimensions": [
+        690,
+        885
+      ],
+      "scale_factor": 0.956522,
+      "placement": {
+        "x": 470,
+        "y": 142,
+        "width": 660,
+        "height": 846
+      },
+      "final_rendered_bounds": [
+        492,
+        160,
+        1109,
+        973
+      ],
+      "output_file": "public/assets/menu/normalized/big-mama-fries.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 81970
+    },
+    {
+      "id": "truffle-parmesan-fries",
+      "source_file": "public/assets/menu/truffle parmesan fries.png",
+      "source_sha256": "047800f9616e7da62134e38c9e4c13f33bb9c145650fd1b52ee3fce9f9e0972c",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        251,
+        251,
+        1544,
+        715
+      ],
+      "manual_crop_bounds": [
+        230,
+        225,
+        1565,
+        740
+      ],
+      "crop_dimensions": [
+        1335,
+        515
+      ],
+      "scale_factor": 0.928839,
+      "placement": {
+        "x": 180,
+        "y": 350,
+        "width": 1240,
+        "height": 478
+      },
+      "final_rendered_bounds": [
+        200,
+        373,
+        1401,
+        805
+      ],
+      "output_file": "public/assets/menu/normalized/truffle-parmesan-fries.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 193970
+    },
+    {
+      "id": "kids-meal",
+      "source_file": "public/assets/menu/KIDS MEAL.png",
+      "source_sha256": "86b53c0d1618c2149a64c86afa2c8f35dc25dc0a5f6d6d121a566ab38a7087fe",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGBA",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        120,
+        161,
+        1448,
+        927
+      ],
+      "manual_crop_bounds": [
+        100,
+        140,
+        1448,
+        945
+      ],
+      "crop_dimensions": [
+        1348,
+        805
+      ],
+      "scale_factor": 0.890208,
+      "placement": {
+        "x": 200,
+        "y": 240,
+        "width": 1200,
+        "height": 717
+      },
+      "final_rendered_bounds": [
+        218,
+        258,
+        1400,
+        942
+      ],
+      "output_file": "public/assets/menu/normalized/kids-meal.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 212654,
+      "manual_review": "Source right edge retained."
+    },
+    {
+      "id": "big-mayo-sauce",
+      "source_file": "public/assets/menu/Big mayo sauce.png",
+      "source_sha256": "e2a4bc96a917cb154b2c01f377935bc10d24b2169e601e2ae5384c12ef0bb0d6",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        88,
+        154,
+        1321,
+        1009
+      ],
+      "manual_crop_bounds": [
+        70,
+        130,
+        1340,
+        1035
+      ],
+      "crop_dimensions": [
+        1270,
+        905
+      ],
+      "scale_factor": 0.906299,
+      "placement": {
+        "x": 225,
+        "y": 190,
+        "width": 1151,
+        "height": 820
+      },
+      "final_rendered_bounds": [
+        241,
+        212,
+        1358,
+        989
+      ],
+      "output_file": "public/assets/menu/normalized/big-mayo-sauce.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 151846,
+      "group": "sauces"
+    },
+    {
+      "id": "truffle-mayo-sauce",
+      "source_file": "public/assets/menu/Truffle mayo sauce.png",
+      "source_sha256": "094f8edbfff0d488574275fa8db1009639ecabe0dca68fc67f43f0f9d9239ae7",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        94,
+        128,
+        1340,
+        990
+      ],
+      "manual_crop_bounds": [
+        75,
+        110,
+        1360,
+        1015
+      ],
+      "crop_dimensions": [
+        1285,
+        905
+      ],
+      "scale_factor": 0.900389,
+      "placement": {
+        "x": 222,
+        "y": 193,
+        "width": 1157,
+        "height": 815
+      },
+      "final_rendered_bounds": [
+        239,
+        210,
+        1361,
+        987
+      ],
+      "output_file": "public/assets/menu/normalized/truffle-mayo-sauce.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 172020,
+      "group": "sauces"
+    },
+    {
+      "id": "dragon-sauce",
+      "source_file": "public/assets/menu/Dragon sauce.png",
+      "source_sha256": "efe7cfff42be30705828a5bee4b2b5d92c71d8605c9e433c4d59f9e91181ecaf",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        85,
+        149,
+        1320,
+        1008
+      ],
+      "manual_crop_bounds": [
+        65,
+        130,
+        1340,
+        1035
+      ],
+      "crop_dimensions": [
+        1275,
+        905
+      ],
+      "scale_factor": 0.905882,
+      "placement": {
+        "x": 223,
+        "y": 190,
+        "width": 1155,
+        "height": 820
+      },
+      "final_rendered_bounds": [
+        240,
+        207,
+        1360,
+        991
+      ],
+      "output_file": "public/assets/menu/normalized/dragon-sauce.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 186470,
+      "group": "sauces"
+    },
+    {
+      "id": "red-dragon-sauce",
+      "source_file": "public/assets/menu/RED DRAGON SAUCE.png",
+      "source_sha256": "c0d145e575f0d769ca56ca15a8902ff0cc3e8c64e514957af4e39b6e3dc37716",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        70,
+        96,
+        1356,
+        1017
+      ],
+      "manual_crop_bounds": [
+        50,
+        75,
+        1380,
+        1040
+      ],
+      "crop_dimensions": [
+        1330,
+        965
+      ],
+      "scale_factor": 0.850376,
+      "placement": {
+        "x": 235,
+        "y": 190,
+        "width": 1131,
+        "height": 820
+      },
+      "final_rendered_bounds": [
+        252,
+        210,
+        1345,
+        992
+      ],
+      "output_file": "public/assets/menu/normalized/red-dragon-sauce.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 208212,
+      "group": "sauces"
+    },
+    {
+      "id": "original-double-choco-cookie",
+      "source_file": "public/assets/menu/original-double-choco-cookie.jpg",
+      "source_sha256": "3bb0dc7d0758e8024502e2eb1362e174876a31070152ff5f4c452dc32ed79e7c",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "source_format": "JPEG",
+      "source_mode": "RGB",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        66,
+        45,
+        1229,
+        883
+      ],
+      "manual_crop_bounds": [
+        50,
+        30,
+        1250,
+        905
+      ],
+      "crop_dimensions": [
+        1200,
+        875
+      ],
+      "scale_factor": 0.916667,
+      "placement": {
+        "x": 250,
+        "y": 199,
+        "width": 1100,
+        "height": 802
+      },
+      "final_rendered_bounds": [
+        265,
+        212,
+        1330,
+        981
+      ],
+      "output_file": "public/assets/menu/normalized/original-double-choco-cookie.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 193148
+    },
+    {
+      "id": "soft-drink",
+      "source_file": "public/assets/menu/Soft drink.png",
+      "source_sha256": "85daabde2fbdcee8dcb14cb64a6af3ce6f139bff92e5f09ed2c0279e3a7d6158",
+      "source_dimensions": [
+        689,
+        414
+      ],
+      "source_format": "PNG",
+      "source_mode": "RGBA",
+      "source_alpha_extrema": [
+        255,
+        255
+      ],
+      "detected_visible_bounds": [
+        0,
+        0,
+        689,
+        356
+      ],
+      "manual_crop_bounds": [
+        260,
+        40,
+        430,
+        370
+      ],
+      "crop_dimensions": [
+        170,
+        330
+      ],
+      "scale_factor": 2.3,
+      "placement": {
+        "x": 604,
+        "y": 220,
+        "width": 391,
+        "height": 759
+      },
+      "final_rendered_bounds": [
+        663,
+        238,
+        945,
+        946
+      ],
+      "output_file": "public/assets/menu/normalized/soft-drink.webp",
+      "output_dimensions": [
+        1600,
+        1200
+      ],
+      "output_format": "WEBP",
+      "output_colour_space": "sRGB",
+      "output_file_size_bytes": 37894,
+      "manual_review": "Approved removal of only the top rule and close icon; drink pixels remain untouched. The 2.3x source crop resize preserves the current rendered can scale."
+    }
+  ]
+}

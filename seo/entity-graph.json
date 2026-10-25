@@ -1,0 +1,118 @@
+{
+  "blockedBy": [
+    "canonical_home_url",
+    "primary_business_category",
+    "price_range",
+    "google_business_profile",
+    "social_profiles",
+    "big_tokyo_status",
+    "displayed_rating",
+    "review_count"
+  ],
+  "invariants": [
+    "exactly one Restaurant",
+    "stable production @id",
+    "NAP/hours/menu parity",
+    "visible-content support",
+    "no unsupported rating",
+    "Big Tokyo excluded until resolved"
+  ],
+  "nodes": [
+    {
+      "blockedFacts": [
+        "url",
+        "sameAs",
+        "priceRange",
+        "aggregateRating",
+        "review"
+      ],
+      "facts": [
+        "name",
+        "telephone",
+        "address",
+        "geo",
+        "regularOpeningHours",
+        "servedCuisine"
+      ],
+      "id": "business:big-mama",
+      "type": "Restaurant"
+    },
+    {
+      "id": "website:big-mama",
+      "status": "BLOCKED_BY_PRODUCTION_ORIGIN",
+      "type": "WebSite"
+    },
+    {
+      "id": "webpage:home",
+      "status": "BLOCKED_BY_CANONICAL_URL",
+      "type": "WebPage"
+    },
+    {
+      "blockedProductIds": [
+        "product:big-tokyo"
+      ],
+      "eligibleProductIds": [
+        "product:mamas-original-single",
+        "product:bacon-lovers-double",
+        "product:truffle-oh-mama-double",
+        "product:lava-mam-chicken",
+        "product:truffle-parmesan-chicken",
+        "product:mama-in-paris",
+        "product:big-mama-fries",
+        "product:original-double-choco-cookie"
+      ],
+      "id": "menu:big-mama",
+      "type": "Menu"
+    }
+  ],
+  "primaryEntity": "business:big-mama",
+  "productionEligible": false,
+  "schemaVersion": "1.0.0",
+  "stableProductionId": null,
+  "status": "USER_DECISION_REQUIRED",
+  "verifiedFacts": {
+    "address": {
+      "addressCountry": "GR",
+      "addressLocality": "Nea Filadelfia",
+      "postalCode": "143 41",
+      "streetAddress": "Leof. Dekelias 114"
+    },
+    "geo": {
+      "latitude": 38.0349902,
+      "longitude": 23.7386331
+    },
+    "name": "Big Mama Burgers n' Fries",
+    "openingHours": [
+      {
+        "closes": "01:00",
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "17:00"
+      },
+      {
+        "closes": "02:00",
+        "days": [
+          "Saturday"
+        ],
+        "opens": "15:00"
+      },
+      {
+        "closes": "01:00",
+        "days": [
+          "Sunday"
+        ],
+        "opens": "14:00"
+      }
+    ],
+    "servedCuisine": [
+      "Burgers"
+    ],
+    "telephone": "+30 216 003 3303",
+    "timeZone": "Europe/Athens"
+  }
+}

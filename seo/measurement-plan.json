@@ -1,0 +1,152 @@
+{
+  "claimsPolicy": "Local synthetic data is never field Core Web Vitals; absent account data remains unavailable.",
+  "consentGate": {
+    "analyticsBeforeConsentAllowed": false,
+    "status": "USER_DECISION_REQUIRED"
+  },
+  "events": [
+    {
+      "description": "Outbound Wolt link activation",
+      "id": "wolt_click",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Outbound efood link activation",
+      "id": "efood_click",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Telephone link activation",
+      "id": "phone_click",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Directions link activation",
+      "id": "directions_click",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Review destination activation",
+      "id": "review_click",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Menu category/product interaction",
+      "id": "menu_interaction",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Provider chooser opened",
+      "id": "provider_chooser_open",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Ordering provider selected",
+      "id": "provider_selection",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Approved contact action",
+      "id": "contact_action",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Language variant selected",
+      "id": "language_selection",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    },
+    {
+      "description": "Privacy-safe external referrer classification",
+      "id": "external_referral_source",
+      "personalDataRequired": false,
+      "status": "DESIGNED_NOT_DEPLOYED"
+    }
+  ],
+  "platforms": {
+    "aiReferrals": {
+      "metrics": [
+        "referral source",
+        "supplied UTM source",
+        "landing page",
+        "conversion action",
+        "measurable assisted conversion"
+      ],
+      "status": "SETUP_REQUIRED"
+    },
+    "analytics": {
+      "metrics": [
+        "wolt_click",
+        "efood_click",
+        "phone_click",
+        "directions_click",
+        "review_click",
+        "menu_interaction",
+        "provider_chooser_open",
+        "provider_selection",
+        "contact_action",
+        "language_selection",
+        "external_referral_source"
+      ],
+      "status": "USER_DECISION_REQUIRED"
+    },
+    "bingWebmaster": {
+      "metrics": [
+        "indexed pages",
+        "keywords",
+        "crawl errors",
+        "backlinks",
+        "sitemap processing",
+        "IndexNow diagnostics",
+        "SEO reports"
+      ],
+      "status": "EXTERNAL_AUTHORIZATION_REQUIRED"
+    },
+    "googleBusinessProfile": {
+      "metrics": [
+        "profile views",
+        "website actions",
+        "calls",
+        "directions",
+        "order actions",
+        "available search terms",
+        "photo activity",
+        "review operations"
+      ],
+      "status": "EXTERNAL_AUTHORIZATION_REQUIRED"
+    },
+    "googleSearchConsole": {
+      "aiFeatureNote": "Use officially available Search Console reporting only; no separate AI report is inferred.",
+      "metrics": [
+        "indexed pages",
+        "queries",
+        "impressions",
+        "clicks",
+        "CTR",
+        "average position",
+        "page/query segments",
+        "image search",
+        "rich-result reports",
+        "crawl/index errors"
+      ],
+      "status": "EXTERNAL_AUTHORIZATION_REQUIRED"
+    }
+  },
+  "privacy": [
+    "No unnecessary personal data",
+    "No credentials in client code or reports",
+    "Consent/legal decision before deployment"
+  ],
+  "productionEligible": false,
+  "schemaVersion": "1.0.0",
+  "status": "SETUP_REQUIRED"
+}

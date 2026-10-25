@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "SETUP_REQUIRED",
+  "observationContract": {
+    "requiredFields": [
+      "id",
+      "queryId",
+      "query",
+      "latitude",
+      "longitude",
+      "radiusMeters",
+      "device",
+      "language",
+      "timestamp",
+      "source",
+      "collector",
+      "collectionMethod",
+      "businessEntityId",
+      "rankOrPresence",
+      "listingUrl",
+      "confidence",
+      "freshness",
+      "limitations"
+    ],
+    "rankValues": ["numeric position", "PRESENT_POSITION_UNKNOWN", "NOT_PRESENT_WITHIN_CAPTURE_DEPTH"],
+    "prohibitedWithoutEvidence": ["rank", "Share of Local Voice", "review count", "rating", "competitor identity"]
+  },
+  "geoGridReadiness": {
+    "status": "SETUP_REQUIRED",
+    "center": {"latitude": 38.0349902, "longitude": 23.7386331, "verificationStatus": "VERIFIED"},
+    "gridSize": null,
+    "spacingMeters": null,
+    "captureDepth": null,
+    "queries": [],
+    "setupRequirements": ["Approved query set", "Approved grid dimensions", "Authorized collection source", "Collection budget"]
+  },
+  "googleBusinessProfileReadiness": {
+    "status": "SETUP_REQUIRED",
+    "checklist": [
+      {"field": "ownership", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "primaryCategory", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "secondaryCategories", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "businessName", "status": "VERIFIED", "source": "seo/business.json#canonicalBrandName"},
+      {"field": "address", "status": "VERIFIED", "source": "seo/business.json#address"},
+      {"field": "mapPin", "status": "VERIFIED", "source": "seo/business.json#geo"},
+      {"field": "phone", "status": "VERIFIED", "source": "seo/business.json#telephone"},
+      {"field": "regularHours", "status": "VERIFIED", "source": "seo/business.json#openingHours"},
+      {"field": "specialHours", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "websiteUrl", "status": "SETUP_REQUIRED", "source": "seo/production-decisions.json#productionOrigin"},
+      {"field": "menuUrl", "status": "SETUP_REQUIRED", "source": "seo/production-decisions.json#productionOrigin"},
+      {"field": "orderingUrls", "status": "VERIFIED", "source": "seo/business.json#orderingUrls"},
+      {"field": "description", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "photos", "status": "OBSERVED", "source": "seo/image-data.json"},
+      {"field": "qa", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "reviewAcquisition", "status": "PLANNING_ONLY", "source": "seo/review-operations.json"},
+      {"field": "reviewResponses", "status": "PLANNING_ONLY", "source": "seo/review-operations.json"},
+      {"field": "duplicateListings", "status": "SETUP_REQUIRED", "source": null},
+      {"field": "citations", "status": "SETUP_REQUIRED", "source": "seo/citations.json"},
+      {"field": "mapsGeoGridTracking", "status": "SETUP_REQUIRED", "source": "seo/local-pack-baseline.json#geoGridReadiness"}
+    ],
+    "policies": ["Do not keyword-stuff the GBP business name.", "Do not invent service areas.", "Do not modify GBP without separate authorization."]
+  },
+  "observations": [],
+  "metrics": {
+    "shareOfLocalVoice": null,
+    "averageRank": null,
+    "presenceRate": null,
+    "status": "SETUP_REQUIRED"
+  },
+  "notes": "No Local Pack, Maps, or geo-grid ranking data was collected."
+}

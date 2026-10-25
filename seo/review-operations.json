@@ -1,0 +1,43 @@
+{
+  "allowedChannels": [
+    "post-purchase reminder",
+    "receipt/card",
+    "approved QR",
+    "direct neutral review destination"
+  ],
+  "destination": {
+    "status": "EXTERNAL_AUTHORIZATION_REQUIRED",
+    "value": null
+  },
+  "displayedRating": {
+    "rule": "Verify, timestamp, source and refresh or remove.",
+    "status": "USER_DECISION_REQUIRED",
+    "value": null
+  },
+  "evidenceRefreshCadence": "USER_DECISION_REQUIRED",
+  "externalAccountAuthorization": "APPROVED — ALLOW EXTERNAL SEARCH PLATFORM CHANGES",
+  "prohibited": [
+    "review gating",
+    "positive-review incentives",
+    "fabricated reviews",
+    "selective suppression",
+    "unsupported rating markup",
+    "stale relative dates",
+    "unapproved scraping or republication"
+  ],
+  "publicationStatus": "BLOCKED",
+  "responseTimeTarget": "USER_DECISION_REQUIRED",
+  "reviewCount": {
+    "status": "USER_DECISION_REQUIRED",
+    "value": null
+  },
+  "schemaVersion": "1.0.0",
+  "status": "SETUP_REQUIRED",
+  "workflow": [
+    "verify destination",
+    "request neutrally",
+    "record response evidence",
+    "escalate operational complaints",
+    "refresh displayed evidence on schedule"
+  ]
+}

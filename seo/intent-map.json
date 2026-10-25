@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "mappings": [
+    {
+      "intent": "navigational",
+      "queryCategories": ["branded", "navigation"],
+      "userNeed": "Reach the correct Big Mama entity or physical location",
+      "currentEvidence": ["brand", "address", "directions link"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "maps"],
+      "futurePageType": "homepage",
+      "targetAction": "directions_click"
+    },
+    {
+      "intent": "local-commercial",
+      "queryCategories": ["local-commercial", "maps-near-me"],
+      "userNeed": "Evaluate a nearby burger restaurant",
+      "currentEvidence": ["menu", "location", "visible review section"],
+      "targetEntity": "location:nea-filadelfia",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "futurePageType": "homepage",
+      "targetAction": "menu_category_select"
+    },
+    {
+      "intent": "transactional",
+      "queryCategories": ["delivery"],
+      "userNeed": "Start an order through an available provider",
+      "currentEvidence": ["Wolt link", "efood link"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "delivery-platform"],
+      "futurePageType": "homepage",
+      "targetAction": "order_now_open"
+    },
+    {
+      "intent": "product-discovery",
+      "queryCategories": ["product", "category"],
+      "userNeed": "Inspect burger, fries, cookie, and Limited menu options",
+      "currentEvidence": ["five menu categories", "nine menu products"],
+      "targetEntity": "menu:big-mama",
+      "targetSearchSurfaces": ["organic", "images"],
+      "futurePageType": "homepage",
+      "targetAction": "menu_category_select"
+    },
+    {
+      "intent": "commercial-investigation",
+      "queryCategories": ["comparison", "review"],
+      "userNeed": "Evaluate reputation and compare local choices",
+      "currentEvidence": ["visible review section"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "futurePageType": null,
+      "targetAction": "review_click",
+      "setupRequirements": ["Authorized competitor and review evidence"]
+    },
+    {
+      "intent": "opening-hours",
+      "queryCategories": ["opening-hours"],
+      "userNeed": "Confirm posted regular opening hours",
+      "currentEvidence": ["posted weekly hours"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "local-pack", "maps"],
+      "futurePageType": "homepage",
+      "targetAction": "directions_click"
+    },
+    {
+      "intent": "informational",
+      "queryCategories": ["informational"],
+      "userNeed": "Understand the restaurant, location, and menu at a glance",
+      "currentEvidence": ["brand copy", "location", "menu"],
+      "targetEntity": "business:big-mama",
+      "targetSearchSurfaces": ["organic", "ai-search"],
+      "futurePageType": "homepage",
+      "targetAction": "menu_category_select"
+    }
+  ],
+  "verificationStatus": "INFERRED",
+  "serpConsensusStatus": "SETUP_REQUIRED",
+  "limitations": [
+    "No live SERP consensus, PAA, ad copy, query volume, or page-type evidence was collected.",
+    "Future page types remain planning hypotheses until live evidence and website integration approval exist."
+  ]
+}

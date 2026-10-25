@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Big Mama Burgers n' Fries premium animated landing page."
+    />
+    <title>Big Mama | Burgers n' Fries</title>
+    <style>
+      html { background: #ff5400; }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reviews-orbit.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <svg class="liquid-filter" width="0" height="0" aria-hidden="true" focusable="false">
+      <filter id="gooey-liquid">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 22 -9
+          "
+          result="goo"
+        />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </svg>
+
+    <div class="loader" data-loader>
+      <div class="loader__ambient-layer" aria-hidden="true">
+        <span class="loader__ambient loader__ambient--top-left"></span>
+        <span class="loader__ambient loader__ambient--top-right"></span>
+        <span class="loader__ambient loader__ambient--bottom-left"></span>
+        <span class="loader__ambient loader__ambient--bottom-right"></span>
+        <span class="loader__ambient loader__ambient--left-streak"></span>
+        <span class="loader__ambient loader__ambient--right-streak"></span>
+        <span class="loader__spark loader__spark--one"></span>
+        <span class="loader__spark loader__spark--two"></span>
+        <span class="loader__spark loader__spark--three"></span>
+      </div>
+      <div class="loader__center-energy" aria-hidden="true">
+        <span class="loader__center-glow"></span>
+        <span class="loader__center-blob loader__center-blob--one"></span>
+        <span class="loader__center-blob loader__center-blob--two"></span>
+      </div>
+      <div class="loader__mark">
+        <img
+          class="loader__logo"
+          src="public/assets/logo/big-mama-logo-transparent.png"
+          alt=""
+          aria-hidden="true"
+          width="799"
+          height="825"
+        />
+        <div class="sauce-underline" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <a class="big-mama-logo-link" href="#top" aria-label="Big Mama home">
+      <img
+        class="big-mama-floating-logo"
+        src="public/assets/big-mama-logo.png"
+        alt="Big Mama Burgers N' Fries logo"
+        width="834"
+        height="860"
+      />
+    </a>
+
+    <header class="site-header" data-header>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#featured">Featured</a>
+        <a href="#experience">Experience</a>
+        <a class="menu-image-link" href="#menu" aria-label="Menu">
+          <img src="public/assets/MENU-nav-transparent.png" alt="Menu" width="1120" height="486" />
+        </a>
+        <a href="#story">Location</a>
+        <a href="#story">Contact</a>
+      </nav>
+
+      <a
+        class="nav-cta nav-cta--efood"
+        href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Order Big Mama through efood"
+      >
+        <span class="efood-liquid-layer" aria-hidden="true">
+          <span class="efood-liquid-blob efood-blob-1"></span>
+          <span class="efood-liquid-blob efood-blob-2"></span>
+          <span class="efood-liquid-blob efood-blob-3"></span>
+          <span class="efood-liquid-blob efood-blob-4"></span>
+        </span>
+        <img class="efood-cta-image" src="public/assets/efood-button.png" alt="Order through efood" width="210" height="68" />
+      </a>
+
+    </header>
+
+    <nav class="mobile-primary-nav" aria-label="Primary mobile navigation">
+      <div class="mobile-primary-nav__region mobile-primary-nav__region--start">
+        <a
+          class="mobile-primary-nav__action mobile-primary-nav__provider mobile-primary-nav__provider--wolt"
+          href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Order with Wolt"
+        >
+          <img
+            class="mobile-primary-nav__wolt-image"
+            src="public/assets/navigation/wolt-mobile-circle-256.png"
+            alt=""
+            width="256"
+            height="256"
+          />
+        </a>
+        <a
+          class="mobile-primary-nav__action mobile-primary-nav__secondary"
+          href="#featured"
+          data-mobile-section-link
+        >REVIEWS</a>
+      </div>
+      <div class="mobile-primary-nav__region mobile-primary-nav__region--center">
+        <a
+          class="mobile-primary-nav__action mobile-primary-nav__menu-link"
+          href="#menu"
+          data-mobile-section-link
+          aria-label="Menu"
+        >
+          <img
+            class="mobile-primary-nav__menu-image"
+            src="public/assets/MENU-nav-transparent.png"
+            alt=""
+            width="1120"
+            height="486"
+          />
+        </a>
+      </div>
+      <div class="mobile-primary-nav__region mobile-primary-nav__region--end">
+        <a
+          class="mobile-primary-nav__action mobile-primary-nav__secondary"
+          href="#story"
+          data-mobile-section-link
+        >CONTACT</a>
+        <a
+          class="mobile-primary-nav__action mobile-primary-nav__provider mobile-primary-nav__provider--efood"
+          href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Order with efood"
+        >
+          <img
+            class="mobile-primary-nav__efood-image"
+            src="public/assets/navigation/efood-mobile-logo-480.png"
+            alt=""
+            width="480"
+            height="154"
+          />
+        </a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero__ambient" aria-hidden="true">
+          <span class="heat-panel heat-panel--one"></span>
+          <span class="heat-panel heat-panel--two"></span>
+          <span class="line line--one"></span>
+          <span class="line line--two"></span>
+        </div>
+
+        <div class="hero__content reveal">
+          <h1 id="hero-title" class="headline-reel" data-headline-reel data-headline-phase="base">
+            <span class="headline-reel__sr-only">Big taste. Big Mama attitude.</span>
+            <span class="headline-reel__line headline-reel__line--ink" style="--headline-reel-delay: 0ms" aria-hidden="true">
+              <span class="headline-reel__viewport"><span class="headline-reel__drum">
+                <span class="headline-reel__face headline-reel__face--front">Big taste.</span>
+                <span class="headline-reel__face headline-reel__face--back">Smashed fresh.</span>
+              </span></span>
+            </span>
+            <span class="headline-reel__line headline-reel__line--orange" style="--headline-reel-delay: 130ms" aria-hidden="true">
+              <span class="headline-reel__viewport"><span class="headline-reel__drum">
+                <span class="headline-reel__face headline-reel__face--front">Big Mama</span>
+                <span class="headline-reel__face headline-reel__face--back">Stacked high.</span>
+              </span></span>
+            </span>
+            <span class="headline-reel__line headline-reel__line--orange" style="--headline-reel-delay: 260ms" aria-hidden="true">
+              <span class="headline-reel__viewport"><span class="headline-reel__drum">
+                <span class="headline-reel__face headline-reel__face--front">Attitude.</span>
+                <span class="headline-reel__face headline-reel__face--back">Served loud.</span>
+              </span></span>
+            </span>
+          </h1>
+          <p class="hero__copy">
+            Premium street food με 100% μοσχαρίσιο κιμά, βουτυρένια brioche,
+            χειροποίητες σάλτσες και γεύσεις που δεν περνούν απαρατήρητες.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary liquid-button" href="#menu">
+              <span class="liquid-layer" aria-hidden="true">
+                <span class="liquid-blob blob-1"></span>
+                <span class="liquid-blob blob-2"></span>
+                <span class="liquid-blob blob-3"></span>
+                <span class="liquid-blob blob-4"></span>
+              </span>
+              <span class="button-content"><span class="button-text">ΔΕΣ ΤΟ ΜΕΝΟΥ</span></span>
+            </a>
+            <a
+              class="button button--ghost liquid-button"
+              href="https://www.google.com/maps/dir/?api=1&destination=Big%20Mama%20Burgers%20n%27%20Fries%2C%20Leof.%20Dekelias%20114%2C%20Nea%20Filadelfia%20143%2041%2C%20Greece"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="liquid-layer" aria-hidden="true">
+                <span class="liquid-blob blob-1"></span>
+                <span class="liquid-blob blob-2"></span>
+                <span class="liquid-blob blob-3"></span>
+                <span class="liquid-blob blob-4"></span>
+              </span>
+              <span class="button-content"><span class="button-text">ΒΡΕΣ ΜΑΣ</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-trust-strip reveal" lang="el" aria-label="Βασικά χαρακτηριστικά του Big Mama">
+          <div class="hero-trust-item">
+            <span class="hero-trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 10.5c.5-3.2 3.2-5 8-5s7.5 1.8 8 5H4Z" />
+                <path d="M4.5 14h15" />
+                <path d="M6 18h12" />
+                <path d="M5 14c-.6 1.4.4 4 2.2 4h9.6c1.8 0 2.8-2.6 2.2-4" />
+              </svg>
+            </span>
+            <span class="hero-trust-copy">
+              <strong>100% ΜΟΣΧΑΡΙΣΙΟ</strong>
+              <small>Φρέσκος μοσχαρίσιος κιμάς από σπάλα, ψημένος στην παραγγελία.</small>
+            </span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 9 6 3h3l.8 6" />
+                <path d="m11 9 .4-6h3L14 9" />
+                <path d="m15.8 9 1-6h3L18 9" />
+                <path d="M5.5 9h13l-1.2 12H6.7L5.5 9Z" />
+              </svg>
+            </span>
+            <span class="hero-trust-copy">
+              <strong>ΤΡΑΓΑΝΕΣ ΠΑΤΑΤΕΣ</strong>
+              <small>Χρυσαφένιες, τραγανές και σωστά καρυκευμένες.</small>
+            </span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12.3 21c3.2-1.1 5.4-3.6 5.4-7.1 0-3-1.8-5.8-4.2-8.5-.4 2.7-1.4 4.4-3 5.5.3-2.4-.7-4.5-2.7-6C7.4 8 4.5 10.6 4.5 14c0 3.4 2.4 6 5.5 7" />
+                <path d="M10.4 20.6c-1-1.2-.9-3.1.3-4.4.5 1.1 1.3 1.8 2.5 2.2.2-1.2.1-2.5-.5-3.8 1.9 1.2 3 2.9 2.5 4.6-.3 1.1-1.1 1.8-2.2 2.2" />
+              </svg>
+            </span>
+            <span class="hero-trust-copy">
+              <strong>ΔΥΝΑΤΕΣ ΓΕΥΣΕΙΣ</strong>
+              <small>Γενναίες συνταγές, χωρίς άνοστα shortcuts.</small>
+            </span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 8h10l-1.2 13H8.2L7 8Z" />
+                <path d="M9 8V5c0-1.4 1-2.3 2.3-2.3H14" />
+                <path d="M6 8h12" />
+                <path d="M9 13h6" />
+              </svg>
+            </span>
+            <span class="hero-trust-copy">
+              <strong>ΧΕΙΡΟΠΟΙΗΤΕΣ ΣΑΛΤΣΕΣ</strong>
+              <small>Οι περισσότερες σάλτσες μας παρασκευάζονται από εμάς.</small>
+            </span>
+          </div>
+          <a
+            class="hero-trust-item hero-trust-item--cta"
+            href="#story"
+            aria-label="Βρες το Big Mama στη Λεωφόρο Δεκελείας 114, Νέα Φιλαδέλφεια"
+          >
+            <span class="hero-trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11Z" />
+                <path d="M12 12.2a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" />
+              </svg>
+            </span>
+            <span class="hero-trust-copy">
+              <strong>ΒΡΕΣ ΜΑΣ</strong>
+              <small>Λεωφόρος Δεκελείας 114, Νέα Φιλαδέλφεια.</small>
+            </span>
+          </a>
+        </div>
+
+        <a class="scroll-cue" href="#featured" aria-label="Scroll to featured burger">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="featured section-shell" id="featured" aria-labelledby="featured-title">
+        <div class="built-content">
+          <div class="section-kicker reveal">
+            <p class="eyebrow">Signature drop</p>
+            <h2 id="featured-title">Built to be remembered.</h2>
+            <a
+              class="review-pill"
+              href="https://www.google.com/maps/place/Big+Mama+Burgers+n%27+Fries/@38.0331785,23.7426529,15z/data=!4m8!3m7!1s0x14a1a30032ac5caf:0x1dd5a61efd0f5935!8m2!3d38.0349902!4d23.7386331!9m1!1b1!16s%2Fg%2F11y06nrmlf?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Google reviews for Big Mama Burgers n' Fries"
+            >
+              <span class="review-score">
+                <span class="review-star" aria-hidden="true">★</span>
+                <span class="review-rating">4.8</span>
+              </span>
+              <span class="review-divider" aria-hidden="true"></span>
+              <span class="review-copy">
+                <span class="review-main">Leave a Review</span>
+                <span class="review-sub">Rated by locals</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="floating-burger-zone" aria-hidden="true">
+            <img
+              class="floating-burger"
+              src="public/assets/exploded-burger-cutout.png"
+              alt=""
+              width="1183"
+              height="1240"
+              loading="lazy"
+              data-scroll-motion
+              data-scroll-x="-10"
+              data-scroll-y="24"
+              data-scroll-rotate="2.4"
+            />
+          </div>
+        </div>
+
+        <div class="reviews-layout">
+          <div class="reviews-visual reveal" aria-hidden="true">
+            <picture>
+              <img
+                class="reviews-visual__image"
+                src="public/assets/reviews/big-mama-feast-bag-vertical.png"
+                alt=""
+                width="1024"
+                height="1536"
+                loading="lazy"
+                decoding="async"
+                data-scroll-motion
+                data-scroll-x="4"
+                data-scroll-y="24"
+                data-scroll-rotate="0.6"
+              />
+            </picture>
+          </div>
+
+          <div class="reviews-content">
+            <article class="feature-card reveal street-stack-card reviews-feature-card">
+          <div class="reviews-feature-card__header">
+            <div class="reviews-feature-card__controls">
+              <p class="eyebrow">Real local reviews</p>
+            </div>
+            <h3>Rated by people who actually came hungry.</h3>
+          </div>
+
+          <div
+            class="reviews-deck"
+            id="google-reviews-carousel"
+            data-review-deck
+            tabindex="0"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Google reviews"
+          >
+            <div class="reviews-scene" data-review-scene>
+              <div class="reviews-rig" data-review-rig>
+                <div class="reviews-orbit" data-review-orbit>
+                  <div class="reviews-orbit__slot" data-review-slot data-review-index="0">
+                    <article class="review-card is-active" data-review-card="0" role="button" tabindex="0" aria-pressed="true" aria-label="Show Nikos Tsoukatos review" lang="el">
+                      <div class="review-card__top">
+                        <span class="review-card__avatar review-card__avatar--nikos" aria-hidden="true">N</span>
+                        <span class="review-card__identity">
+                          <strong class="review-card__name">Nikos Tsoukatos</strong>
+                          <span class="review-card__meta">Local Guide · 269 reviews · 177 photos</span>
+                        </span>
+                      </div>
+                      <div class="review-card__rating-row">
+                        <span class="review-card__stars" aria-label="5 out of 5 stars"><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span></span>
+                        <span class="review-card__date">3 months ago</span>
+                      </div>
+                      <p class="review-card__text">Ήρθαμε νωρίς το απόγευμα. Το μαγαζί ήταν άδεια άρα παραλάβαμε και πολύ γρήγορα το φαγητό, που ήταν απίστευτο. Δεν είναι ενα μπέργκερ που θα φας συχνά στην Ελλάδα. Το μπιφτέκι αλλα και το κοτόπουλο ηταν πολύ ωραία και ποιοτικά. Σαν τις πατάτες όμως δεν είχε, εγώ που δεν ειμαι και ο μεγαλύτερος fan τους τις λάτρεψα. Το προτείνω 1000% σε όποιον βρίσκεται στην περιοχή.</p>
+                    </article>
+                  </div>
+
+                  <div class="reviews-orbit__slot" data-review-slot data-review-index="1">
+                    <article class="review-card is-right" data-review-card="1" role="button" tabindex="0" aria-pressed="false" aria-label="Show THANOS ANTONIS review" lang="el">
+                      <div class="review-card__top">
+                        <span class="review-card__avatar review-card__avatar--thanos" aria-hidden="true">T</span>
+                        <span class="review-card__identity">
+                          <strong class="review-card__name">THANOS ANTONIS</strong>
+                          <span class="review-card__meta">Local Guide · 150 reviews · 581 photos</span>
+                        </span>
+                      </div>
+                      <div class="review-card__rating-row">
+                        <span class="review-card__stars" aria-label="5 out of 5 stars"><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span></span>
+                        <span class="review-card__date">3 months ago</span>
+                      </div>
+                      <p class="review-card__text">Είχα δει στους χάρτες για το Big Mama και μου τράβηξε το ενδιαφέρον οπότε με την πρώτη ευκαιρία ήρθα για δοκιμή !! Δοκίμασα το truffle oh mama επειδή διάβασα πολύ καλά σχόλια και η αλήθεια είναι ότι τα δικαιολόγησε απόλυτα. Ωραίες και οι απλές πατάτες ........θα επανέλθω στο μέλλον και για τα υπόλοιπα.....</p>
+                    </article>
+                  </div>
+
+                  <div class="reviews-orbit__slot" data-review-slot data-review-index="2">
+                    <article class="review-card is-offscreen" data-review-card="2" role="button" tabindex="-1" aria-pressed="false" aria-hidden="true" inert aria-label="Show ΙΩΑΝΝΑ ΓΕΩΡΓΑΝΤΟΠΟΥΛΟΥ review" lang="el">
+                      <div class="review-card__top">
+                        <span class="review-card__avatar review-card__avatar--ioanna" aria-hidden="true">Ι</span>
+                        <span class="review-card__identity">
+                          <strong class="review-card__name">ΙΩΑΝΝΑ ΓΕΩΡΓΑΝΤΟΠΟΥΛΟΥ</strong>
+                          <span class="review-card__meta">Local Guide · 87 reviews · 2 photos</span>
+                        </span>
+                      </div>
+                      <div class="review-card__rating-row">
+                        <span class="review-card__stars" aria-label="5 out of 5 stars"><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span></span>
+                        <span class="review-card__date">2 months ago</span>
+                      </div>
+                      <p class="review-card__text">Μεγάλο burger που σε χορταίνει. Πολύ ευγενικό προσωπικό. Πολύ καθαρός χώρος και γρήγορη εξυπηρέτηση. Το συνιστώ ανεπιφύλακτα.</p>
+                    </article>
+                  </div>
+
+                  <div class="reviews-orbit__slot" data-review-slot data-review-index="3">
+                    <article class="review-card is-offscreen" data-review-card="3" role="button" tabindex="-1" aria-pressed="false" aria-hidden="true" inert aria-label="Show Αντώνης Θ. review" lang="el">
+                      <div class="review-card__top">
+                        <span class="review-card__avatar review-card__avatar--antonis" aria-hidden="true">Α</span>
+                        <span class="review-card__identity">
+                          <strong class="review-card__name">Αντώνης Θ.</strong>
+                          <span class="review-card__meta">Local Guide · 190 reviews · 185 photos</span>
+                        </span>
+                      </div>
+                      <div class="review-card__rating-row">
+                        <span class="review-card__stars" aria-label="5 out of 5 stars"><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span></span>
+                        <span class="review-card__date">3 months ago</span>
+                      </div>
+                      <p class="review-card__text">Εξαιρετικά μπέργκερ. Πλέον έχουν ανοίξει τόσα μπεργκεράδικα που δύσκολα ξεχωρίζεις κάποιο αλλά ειλικρινά αυτό το ξεχώρισα.</p>
+                    </article>
+                  </div>
+
+                  <div class="reviews-orbit__slot" data-review-slot data-review-index="4">
+                    <article class="review-card is-left" data-review-card="4" role="button" tabindex="0" aria-pressed="false" aria-label="Show Alexandra Bourli review" lang="en">
+                      <div class="review-card__top">
+                        <span class="review-card__avatar review-card__avatar--alexandra" aria-hidden="true">A</span>
+                        <span class="review-card__identity">
+                          <strong class="review-card__name">Alexandra Bourli</strong>
+                          <span class="review-card__meta">Local Guide · 96 reviews</span>
+                        </span>
+                      </div>
+                      <div class="review-card__rating-row">
+                        <span class="review-card__stars" aria-label="5 out of 5 stars"><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span><span class="review-card__star" aria-hidden="true">★</span></span>
+                        <span class="review-card__date">3 months ago</span>
+                      </div>
+                      <p class="review-card__text">Great food, the burgers we tried tasted great, all the ingredients felt fresh and tasty. The service was very quick and the staff friendly.</p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="review-carousel-status" data-review-status aria-live="polite" aria-atomic="true"></p>
+          </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-menu-divider reveal" id="experience" aria-hidden="true">
+        <div class="reviews-menu-divider__glow"></div>
+        <div class="reviews-menu-divider__line"></div>
+        <div class="reviews-menu-divider__accent"></div>
+      </section>
+
+      <section class="menu section-shell" id="menu" aria-labelledby="menu-title">
+        <h2 class="visually-hidden" id="menu-title">Big Mama Menu</h2>
+        <div class="menu-category-header reveal">
+          <p class="eyebrow">Main menu</p>
+          <img
+            class="menu-category-title"
+            data-menu-title
+            src="public/assets/menu/beef-burgers-title.png"
+            alt=""
+            width="1078"
+            height="772"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="menu-category-navigation reveal">
+          <div class="menu-category-switcher" role="tablist" aria-label="Big Mama menu categories">
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="appetizers-menu-panel" id="appetizers-menu-tab" tabindex="-1" data-menu-tab="appetizers" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>APPETIZERS</span></button>
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="fries-menu-panel" id="fries-menu-tab" tabindex="-1" data-menu-tab="fries" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>FRIES</span></button>
+            <button class="menu-category-tab menu-category-tab--burgers is-active" type="button" role="tab" aria-selected="true" aria-controls="burgers-menu-panel" aria-haspopup="menu" aria-expanded="false" id="burgers-menu-tab" tabindex="0" data-menu-tab="burgers" data-title-src="public/assets/menu/beef-burgers-title.png" data-title-width="1078" data-title-height="772"><span class="menu-category-tab__label">BURGERS</span><span class="menu-category-tab__meta"><span data-burger-current-label>BEEF</span><span class="menu-category-tab__chevron" aria-hidden="true"></span></span></button>
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="kids-menu-panel" id="kids-menu-tab" tabindex="-1" data-menu-tab="kids" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>KIDS MENU</span></button>
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="sauces-menu-panel" id="sauces-menu-tab" tabindex="-1" data-menu-tab="sauces" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>SAUCES</span></button>
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="cookies-menu-panel" id="cookies-menu-tab" tabindex="-1" data-menu-tab="cookies" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>COOKIES</span></button>
+            <button class="menu-category-tab" type="button" role="tab" aria-selected="false" aria-controls="drinks-menu-panel" id="drinks-menu-tab" tabindex="-1" data-menu-tab="drinks" data-title-src="public/assets/MENU-nav-transparent.png" data-title-width="1120" data-title-height="486"><span>DRINKS</span></button>
+          </div>
+          <div class="menu-burger-popover" id="burgers-submenu" role="menu" aria-label="Burger subcategories" hidden>
+            <button type="button" role="menuitem" class="menu-burger-option" data-burger-subcategory="beef" hidden>BEEF</button>
+            <button type="button" role="menuitem" class="menu-burger-option" data-burger-subcategory="limited">LIMITED</button>
+            <button type="button" role="menuitem" class="menu-burger-option" data-burger-subcategory="chicken">CHICKEN</button>
+          </div>
+        </div>
+        <p class="visually-hidden" data-menu-status aria-live="polite" aria-atomic="true">Burgers: Beef</p>
+
+        <div class="menu-panels">
+          <div class="menu-panel is-active" id="burgers-menu-panel" role="tabpanel" aria-labelledby="burgers-menu-tab" data-menu-panel="burgers">
+            <section class="burger-subpanel is-active" data-burger-panel="beef" aria-label="Beef burgers">
+          <div class="menu-grid" data-product-count="4">
+            <article class="menu-card burger-card reveal" data-product-id="classic-cheese-burger">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/classic-cheese-burger-attached-f8cbf559.webp" alt="Classic Cheese Burger" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>Classic Cheeseburger</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με μπιφτέκι από 100% μοσχαρίσιο κιμά, cheddar, fresh onions, πίκλες, ketchup &amp; μουστάρδα</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-classic-cheese-burger" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-classic-cheese-burger" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/classic-cheeseburger-itemid-2d5a977a688b8401fe62298c" target="_blank" rel="noopener noreferrer" aria-label="Order Classic Cheese Burger on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Classic Cheese Burger" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="bacon-lovers-double">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--bacon" src="public/assets/menu/normalized/bacon-lovers-double.webp" alt="Bacon Lovers Double" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3>Bacon Lovers</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με διπλό μπιφτέκι από 100% μοσχαρίσιο κιμάς, handmade bacon marmalade, cheddar, big mayo, &amp; french crispy onions</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-bacon-lovers-double" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-bacon-lovers-double" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/bacon-lovers-double-burger-itemid-bef2e05925dd1a04080a897e" target="_blank" rel="noopener noreferrer" aria-label="Order Bacon Lovers Double on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Bacon Lovers Double" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="truffle-oh-mama-double">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--truffle-beef" src="public/assets/menu/normalized/truffle-oh-mama-double.webp" alt="Truffle Oh Mama Double" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">03</span>
+              <h3>Truffle Oh Mama</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με διπλό μπιφτέκι από 100% μοσχαρίσιο κιμά, διπλό cheddar, french crispy onions &amp; truffle mayo sauce</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-truffle-oh-mama-double" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-truffle-oh-mama-double" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/truffle-oh-mama-double-burger-itemid-7a089ca3000ccf1e610833ce" target="_blank" rel="noopener noreferrer" aria-label="Order Truffle Oh Mama Double on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Truffle Oh Mama Double" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="mamas-original-single">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--mamas" src="public/assets/menu/normalized/mamas-original-single-attached-f798dbf8.webp" alt="Mama's Original Single" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">04</span>
+              <h3>Mama's Original</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με μπιφτέκι από 100% μοσχαρίσιο κιμά, cheddar, iceberg, relish πίκλας, Big mayo sauce &amp; katsu sauce</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-mamas-original-single" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-mamas-original-single" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/mama-s-original-burger-itemid-c4981c17741438c4ac96b95e" target="_blank" rel="noopener noreferrer" aria-label="Order Mama's Original Single on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Mama's Original Single" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+            </section>
+            <section class="burger-subpanel" data-burger-panel="limited" aria-label="Limited burgers" hidden>
+          <div class="menu-grid menu-grid--pair" data-product-count="2">
+            <article class="menu-card burger-card reveal" data-product-id="mama-in-paris">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--paris" src="public/assets/menu/normalized/mama-in-paris.webp" alt="Mama in Paris" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>Mama in Paris</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με μπιφτέκι από 100% μοσχαρίσιο κιμά, cheddar, fresh onions, creamy pepper sauce, crispy potato croquette &amp; Dijon mustard.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-mama-in-paris" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-mama-in-paris" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/mama-in-paris-itemid-50c1f3c3fe8f064fc7327ca8" target="_blank" rel="noopener noreferrer" aria-label="Order Mama in Paris on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Mama in Paris" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card limited-card--tokyo reveal" data-product-id="big-tokyo">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/big-tokyo.webp" alt="Big Tokyo" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3>Big Tokyo</h3>
+              <p class="menu-card__copy" lang="el">ψωμάκι brioche με τραγανό φιλέτο κοτόπουλο, big mayo, Korean cucumber pickle, fried pineapple, teriyaki sauce &amp; λευκό λάχανο.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-big-tokyo" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-big-tokyo" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/tokyo-crispy-chicken-itemid-e54686ceefe1a48c97d4ab0f" target="_blank" rel="noopener noreferrer" aria-label="Order Big Tokyo on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Big Tokyo" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+            </section>
+            <section class="burger-subpanel" data-burger-panel="chicken" aria-label="Chicken burgers" hidden>
+          <div class="menu-grid" data-product-count="3">
+            <article class="menu-card burger-card chicken-card reveal" data-product-id="crispy-mam">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/crispy-mam.webp" alt="CRISPY MAM" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>CRISPY MAM</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με φιλέτο κοτόπουλο crispy, iceberg, πίκλες, Big mayo sauce &amp; dragon sauce</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-crispy-mam" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-crispy-mam" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/crispy-mam-chicken-burger-itemid-b48d06e7ec501ed5326c78e4" target="_blank" rel="noopener noreferrer" aria-label="Order CRISPY MAM on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find CRISPY MAM" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card chicken-card reveal" data-product-id="lava-mam-chicken">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--lava" src="public/assets/menu/normalized/lava-mam-chicken.webp" alt="Lava Mam Chicken" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3>Lava Mam Chicken</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με φιλέτο κοτόπουλο crispy, jalapenos, iceberg, πίκλες &amp; red dragon sauce</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-lava-mam-chicken" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-lava-mam-chicken" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/lava-mam-chicken-burger-itemid-d4b1fab455bbe6c29c37a53c" target="_blank" rel="noopener noreferrer" aria-label="Order Lava Mam Chicken on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Lava Mam Chicken" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card chicken-card reveal" data-product-id="truffle-parmesan-chicken">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--truffle-chicken" src="public/assets/menu/normalized/truffle-parmesan-chicken.webp" alt="Truffle Parmesan Chicken" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">03</span>
+              <h3>Truffle Parmesan Chicken</h3>
+              <p class="menu-card__copy" lang="el">Ψωμάκι brioche με crispy chicken, relish πίκλας, french crispy onion, παρμεζάνα τριμμένη &amp; truffle mayo</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-truffle-parmesan-chicken" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-truffle-parmesan-chicken" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/truffle-parmesan-chicken-itemid-80f825183b3894dc525ccce3" target="_blank" rel="noopener noreferrer" aria-label="Order Truffle Parmesan Chicken on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Truffle Parmesan Chicken" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+            </section>
+          </div>
+          <div class="menu-panel" id="appetizers-menu-panel" role="tabpanel" aria-labelledby="appetizers-menu-tab" data-menu-panel="appetizers" hidden>
+          <div class="menu-grid menu-grid--single" data-product-count="1">
+            <article class="menu-card burger-card reveal" data-product-id="appetizer-1">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/crispy-chicken-strips-1448x1086.png" alt="CRISPY CHICKEN STRIPS" width="1448" height="1086" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>CRISPY CHICKEN STRIPS</h3>
+              <p class="menu-card__copy" lang="el">Τραγανά φιλέτα κοτόπουλου. Συνοδεύεται από 1 sauce της επιλογής σας</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-appetizer-1" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-appetizer-1" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/crispy-chicken-strips-itemid-f590f3b3143208edce1385a2" target="_blank" rel="noopener noreferrer" aria-label="Order CRISPY CHICKEN STRIPS on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find CRISPY CHICKEN STRIPS" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="menu-panel" id="fries-menu-panel" role="tabpanel" aria-labelledby="fries-menu-tab" data-menu-panel="fries" hidden>
+          <div class="menu-grid menu-grid--pair" data-product-count="2">
+            <article class="menu-card burger-card reveal" data-product-id="big-mama-fries">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--fries" src="public/assets/menu/normalized/big-mama-fries.webp" alt="Big Mama Fries" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>Big Mama Fries</h3>
+              <p class="menu-card__copy" lang="el">Παράγγειλε τηγανητές πατάτες και προσπάθησε να βρεις έναν λόγο, που οι τηγανητές πατάτες είναι συνοδευτικό και όχι κυρίως.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-big-mama-fries" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-big-mama-fries" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/classic-fries-itemid-adc8fb9215555eeb6a90dceb" target="_blank" rel="noopener noreferrer" aria-label="Order Big Mama Fries on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Big Mama Fries" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="truffle-parmesan-fries">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/truffle-parmesan-fries.webp" alt="Truffle Parmesan Fries" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3>Truffle Parmesan Fries</h3>
+              <p class="menu-card__copy" lang="el">Παράγγειλε τηγανητές πατάτες και προσπάθησε να βρεις έναν λόγο, που οι τηγανητές πατάτες είναι συνοδευτικό και όχι κυρίως.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-truffle-parmesan-fries" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-truffle-parmesan-fries" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/truffle-parmesan-fries-itemid-2421a14079b3166969722eb6" target="_blank" rel="noopener noreferrer" aria-label="Order Truffle Parmesan Fries on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Truffle Parmesan Fries" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="menu-panel" id="kids-menu-panel" role="tabpanel" aria-labelledby="kids-menu-tab" data-menu-panel="kids" hidden>
+          <div class="menu-grid menu-grid--single" data-product-count="1">
+            <article class="menu-card burger-card reveal" data-product-id="kids-meal">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/kids-meal-attached-cdf6f1ce.webp" alt="KIDS MEAL" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>KIDS MEAL</h3>
+              <p class="menu-card__copy" lang="el">Τραγανά φιλετίνια κοτόπουλο. Συνοδεύεται από παιδική μερίδα classic fries και ketchup 75 ml.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-kids-meal" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-kids-meal" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/kids-menu-itemid-6c09c996b30e4f92fd895bac" target="_blank" rel="noopener noreferrer" aria-label="Order KIDS MEAL on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find KIDS MEAL" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="menu-panel" id="sauces-menu-panel" role="tabpanel" aria-labelledby="sauces-menu-tab" data-menu-panel="sauces" hidden>
+          <div class="menu-grid menu-grid--compact" data-product-count="4">
+            <article class="menu-card burger-card menu-card--compact reveal" data-product-id="big-mayo-sauce">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/big-mayo-sauce.webp" alt="Big Mayo Sauce" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>Big Mayo Sauce</h3>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-big-mayo-sauce" data-order-toggle><span>CHOOSE YOUR SAUCE</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-big-mayo-sauce" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/big-mayo-sauce-itemid-d774004fabcae8e900f65742" target="_blank" rel="noopener noreferrer" aria-label="Order Big Mayo Sauce on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Big Mayo Sauce" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card menu-card--compact reveal" data-product-id="truffle-mayo-sauce">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/truffle-mayo-sauce.webp" alt="Truffle Mayo Sauce" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3>Truffle Mayo Sauce</h3>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-truffle-mayo-sauce" data-order-toggle><span>CHOOSE YOUR SAUCE</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-truffle-mayo-sauce" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/truffle-mayo-sauce-itemid-5d4c1992c5b2d77f69ca6199" target="_blank" rel="noopener noreferrer" aria-label="Order Truffle Mayo Sauce on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Truffle Mayo Sauce" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card menu-card--compact reveal" data-product-id="dragon-sauce">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/dragon-sauce-1600x1200.png" alt="Dragon Sauce" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">03</span>
+              <h3>Dragon Sauce</h3>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-dragon-sauce" data-order-toggle><span>CHOOSE YOUR SAUCE</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-dragon-sauce" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/dragon-sauce-itemid-53ab81a35f0e84e6460f1e90" target="_blank" rel="noopener noreferrer" aria-label="Order Dragon Sauce on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Dragon Sauce" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card menu-card--compact reveal" data-product-id="red-dragon-sauce">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image" src="public/assets/menu/normalized/red-dragon-sauce.webp" alt="RED DRAGON SAUCE" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">04</span>
+              <h3>RED DRAGON SAUCE</h3>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-red-dragon-sauce" data-order-toggle><span>CHOOSE YOUR SAUCE</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-red-dragon-sauce" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/red-dragon-sauce-itemid-98f60b6714044e462e145d5b" target="_blank" rel="noopener noreferrer" aria-label="Order RED DRAGON SAUCE on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find RED DRAGON SAUCE" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="menu-panel" id="cookies-menu-panel" role="tabpanel" aria-labelledby="cookies-menu-tab" data-menu-panel="cookies" hidden>
+          <div class="menu-grid menu-grid--single" data-product-count="1">
+            <article class="menu-card burger-card reveal" data-product-id="original-double-choco-cookie">
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image">
+                <img class="product-image product-image--cookie" src="public/assets/menu/normalized/original-double-choco-cookie.webp" alt="Original Double Choco Cookie" width="1600" height="1200" loading="lazy" />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3>Original Double Choco Cookie</h3>
+              <p class="menu-card__copy" lang="el">Με βούτυρο, αυγό, κακάο, λευκή ζάχαρη &amp; διπλή σοκολάτα</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-original-double-choco-cookie" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-original-double-choco-cookie" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/original-double-choco-cookie-itemid-7e2099f5914ea6084f73ebb0" target="_blank" rel="noopener noreferrer" aria-label="Order Original Double Choco Cookie on Wolt" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to find Original Double Choco Cookie" tabindex="-1" data-order-provider><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="menu-panel" id="drinks-menu-panel" role="tabpanel" aria-labelledby="drinks-menu-tab" data-menu-panel="drinks" hidden>
+          <div class="menu-grid menu-grid--single" data-product-count="3">
+            <article class="menu-card burger-card reveal" data-product-id="soft-drink" data-coca-cola-variant-card>
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image coca-cola-card__image" data-coca-cola-image-viewport>
+                <img class="product-image coca-cola-card__product-image is-current" src="public/assets/menu/coca-cola/coca-cola-original.png" alt="Coca-Cola Original" width="1254" height="1254" loading="eager" decoding="async" data-coca-cola-image-current />
+              </div>
+              <span class="menu-card__tag">01</span>
+              <h3 data-coca-cola-title>Coca-Cola Original</h3>
+              <p class="menu-card__copy" data-coca-cola-description>The classic Coca-Cola taste, served ice-cold.</p>
+              <fieldset class="coca-cola-card__variants" data-coca-cola-variant-group aria-describedby="coca-cola-variant-status">
+                <legend class="visually-hidden">Choose a Coca-Cola variant</legend>
+                <div class="coca-cola-card__variant-options">
+                  <label class="coca-cola-card__variant-option is-active">
+                    <input class="coca-cola-card__variant-input" type="radio" name="coca-cola-variant" value="original" checked aria-label="Coca-Cola Original" data-coca-cola-variant-option />
+                    <span>Original</span>
+                  </label>
+                  <label class="coca-cola-card__variant-option">
+                    <input class="coca-cola-card__variant-input" type="radio" name="coca-cola-variant" value="zero-sugar" aria-label="Coca-Cola Zero Sugar" data-coca-cola-variant-option />
+                    <span>Zero Sugar</span>
+                  </label>
+                  <label class="coca-cola-card__variant-option">
+                    <input class="coca-cola-card__variant-input" type="radio" name="coca-cola-variant" value="light" aria-label="Coca-Cola Light" data-coca-cola-variant-option />
+                    <span>Light</span>
+                  </label>
+                  <label class="coca-cola-card__variant-option">
+                    <input class="coca-cola-card__variant-input" type="radio" name="coca-cola-variant" value="zero-caffeine" aria-label="Coca-Cola Zero Caffeine" data-coca-cola-variant-option />
+                    <span>Zero Caffeine</span>
+                  </label>
+                </div>
+              </fieldset>
+              <p class="visually-hidden" id="coca-cola-variant-status" aria-live="polite" aria-atomic="true" data-coca-cola-status>Coca-Cola Original selected.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-soft-drink" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-soft-drink" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries/coca-cola-0-33-l-itemid-11f0af0ca832856f6d585671" target="_blank" rel="noopener noreferrer" aria-label="Order Coca-Cola Original on Wolt" tabindex="-1" data-order-provider data-coca-cola-wolt-link><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama Burgers n' Fries on efood to select Coca-Cola Original" tabindex="-1" data-order-provider data-coca-cola-efood-link><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="fanta" data-fanta-variant-card>
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image fanta-card__image" data-fanta-image-viewport>
+                <img class="product-image fanta-card__product-image is-current" src="public/assets/menu/fanta/fanta-orange.png" alt="FANTA ORANGE" width="1254" height="1254" loading="eager" decoding="async" data-fanta-image-current />
+              </div>
+              <span class="menu-card__tag">02</span>
+              <h3 data-fanta-title>FANTA ORANGE</h3>
+              <p class="menu-card__copy" data-fanta-description>Refreshing orange flavor with a bright, fruity taste. Served ice-cold.</p>
+              <fieldset class="fanta-card__variants" data-fanta-variant-group aria-describedby="fanta-variant-status">
+                <legend class="visually-hidden">Choose a Fanta variant</legend>
+                <div class="fanta-card__variant-options">
+                  <label class="fanta-card__variant-option is-active">
+                    <input class="fanta-card__variant-input" type="radio" name="fanta-variant" value="original" checked aria-label="Fanta Original" data-fanta-variant-option />
+                    <span>Original</span>
+                  </label>
+                  <label class="fanta-card__variant-option">
+                    <input class="fanta-card__variant-input" type="radio" name="fanta-variant" value="zero-sugar" aria-label="Fanta Zero Sugar" data-fanta-variant-option />
+                    <span>Zero Sugar</span>
+                  </label>
+                  <label class="fanta-card__variant-option">
+                    <input class="fanta-card__variant-input" type="radio" name="fanta-variant" value="blue-orange" aria-label="Fanta Orange Blue" data-fanta-variant-option />
+                    <span>Blue Orange</span>
+                  </label>
+                  <label class="fanta-card__variant-option">
+                    <input class="fanta-card__variant-input" type="radio" name="fanta-variant" value="lemon" aria-label="Fanta Lemon" data-fanta-variant-option />
+                    <span>Lemon</span>
+                  </label>
+                </div>
+              </fieldset>
+              <p class="visually-hidden" id="fanta-variant-status" aria-live="polite" aria-atomic="true" data-fanta-status>FANTA ORANGE selected.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-fanta" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-fanta" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama on Wolt to select FANTA ORANGE" tabindex="-1" data-order-provider data-fanta-wolt-link><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama on efood to select FANTA ORANGE" tabindex="-1" data-order-provider data-fanta-efood-link><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card burger-card reveal" data-product-id="sprite" data-sprite-variant-card>
+              <span class="burger-card__corner burger-card__corner--top" aria-hidden="true"></span>
+              <span class="burger-card__corner burger-card__corner--bottom" aria-hidden="true"></span>
+              <div class="menu-card__image burger-card__image sprite-card__image" data-sprite-image-viewport>
+                <img class="product-image sprite-card__product-image is-current" src="public/assets/menu/sprite/sprite-original.png" alt="SPRITE ORIGINAL" width="1254" height="1254" loading="eager" decoding="async" data-sprite-image-current />
+              </div>
+              <span class="menu-card__tag">03</span>
+              <h3 data-sprite-title>SPRITE ORIGINAL</h3>
+              <p class="menu-card__copy" data-sprite-description>Crisp lemon-lime refreshment, served ice-cold.</p>
+              <fieldset class="sprite-card__variants" data-sprite-variant-group aria-describedby="sprite-variant-status">
+                <legend class="visually-hidden">Choose a Sprite variant</legend>
+                <div class="sprite-card__variant-options">
+                  <label class="sprite-card__variant-option is-active">
+                    <input class="sprite-card__variant-input" type="radio" name="sprite-variant" value="original" checked aria-label="Sprite Original" data-sprite-variant-option />
+                    <span>Original</span>
+                  </label>
+                  <label class="sprite-card__variant-option">
+                    <input class="sprite-card__variant-input" type="radio" name="sprite-variant" value="zero-sugar" aria-label="Sprite Zero Sugar" data-sprite-variant-option />
+                    <span>Zero Sugar</span>
+                  </label>
+                </div>
+              </fieldset>
+              <p class="visually-hidden" id="sprite-variant-status" aria-live="polite" aria-atomic="true" data-sprite-status>SPRITE ORIGINAL selected.</p>
+              <div class="menu-card__order" data-order-chooser>
+                <button class="burger-card__cta menu-card__order-toggle" type="button" aria-expanded="false" aria-controls="order-options-sprite" data-order-toggle><span>Order now</span><span class="burger-card__cta-arrow" aria-hidden="true">→</span></button>
+                <div class="menu-card__delivery-options" id="order-options-sprite" aria-hidden="true">
+                  <a class="menu-card__delivery-link menu-card__delivery-link--wolt" href="https://wolt.com/el/grc/athens/restaurant/big-mama-burgers-n-fries" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama on Wolt to select SPRITE ORIGINAL" tabindex="-1" data-order-provider data-sprite-wolt-link><span class="menu-card__provider-wordmark">Wolt</span></a>
+                  <a class="menu-card__delivery-link menu-card__delivery-link--efood" href="https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071" target="_blank" rel="noopener noreferrer" aria-label="Open Big Mama on efood to select SPRITE ORIGINAL" tabindex="-1" data-order-provider data-sprite-efood-link><span class="menu-card__provider-wordmark">efood</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="location-section section-shell" id="story" aria-labelledby="location-title">
+        <header class="location-section__header reveal">
+          <p class="eyebrow">Location &amp; contact</p>
+          <h2 id="location-title">Find Big Mama in Nea Filadelfia.</h2>
+        </header>
+
+        <div class="location-section__visual reveal">
+          <img
+            src="public/assets/contact/big-mama-neon-logo-transparent.png"
+            alt="Big Mama Burgers n' Fries neon logo"
+            width="1051"
+            height="1496"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="location-map-card reveal">
+          <div
+            class="location-map"
+            id="big-mama-map"
+            role="region"
+            aria-label="Interactive map showing Big Mama Burgers n' Fries at Leof. Dekelias 114"
+            aria-busy="true"
+            data-location-map
+          ></div>
+          <p class="location-map__status" data-map-status aria-live="polite">Loading location...</p>
+          <a
+            class="location-map__fallback"
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Big%20Mama%20Burgers%20n%27%20Fries%2C%20Leof.%20Dekelias%20114%2C%20Nea%20Filadelfia%20143%2041%2C%20Greece"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-map-fallback
+            hidden
+          >Open directions in Google Maps</a>
+        </div>
+
+        <div class="location-contact-card" aria-label="Big Mama contact information and social media">
+          <div class="location-contact-grid reveal">
+              <a class="location-contact-row location-contact-row--phone" href="tel:+302160033303">
+                <span class="location-contact-row__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </span>
+                <span class="location-contact-row__body">
+                  <span class="location-contact-row__label">Phone</span>
+                  <strong>+30 216 003 3303</strong>
+                </span>
+              </a>
+
+            <a class="location-contact-row location-contact-row--email" href="mailto:info@bigmama.gr" aria-label="Send an email to info@bigmama.gr">
+              <span class="location-contact-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </span>
+              <span class="location-contact-row__body">
+                <span class="location-contact-row__label">Email</span>
+                <strong>info@bigmama.gr</strong>
+              </span>
+            </a>
+
+            <a
+              class="location-contact-row location-contact-row--address"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=Big%20Mama%20Burgers%20n%27%20Fries%2C%20Leof.%20Dekelias%20114%2C%20Nea%20Filadelfia%20143%2041%2C%20Greece"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get directions to Big Mama Burgers n' Fries"
+            >
+                <span class="location-contact-row__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                </span>
+                <span class="location-contact-row__body">
+                  <span class="location-contact-row__label">Address</span>
+                  <strong>Leof. Dekelias 114<br />Nea Filadelfia 143 41</strong>
+                </span>
+              </a>
+
+            <div class="location-contact-row location-contact-row--hours">
+              <span class="location-contact-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+              </span>
+              <span class="location-contact-row__body">
+                <span class="location-contact-row__label">Hours</span>
+                <span class="location-hours">
+                  <span class="location-hours__row"><span class="location-hours__day">Monday-Thursday</span><span class="location-hours__time">16:00-00:00</span></span>
+                  <span class="location-hours__row"><span class="location-hours__day">Friday</span><span class="location-hours__time">16:00-01:00</span></span>
+                  <span class="location-hours__row"><span class="location-hours__day">Saturday</span><span class="location-hours__time">15:00-02:00</span></span>
+                  <span class="location-hours__row"><span class="location-hours__day">Sunday</span><span class="location-hours__time">14:00-00:00</span></span>
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <section class="location-social-actions reveal" aria-labelledby="location-social-title">
+            <p class="location-social-actions__label" id="location-social-title">Our social media</p>
+            <div class="location-social-actions__links">
+              <a
+                class="location-social-link location-social-link--instagram"
+                href="https://www.instagram.com/bigmama.burgers/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              aria-label="Follow Big Mama Burgers on Instagram — opens in a new tab"
+              >
+                <img src="public/assets/social/instagram-cta.png" alt="" width="512" height="512" loading="lazy" decoding="async" />
+              </a>
+              <a
+                class="location-social-link location-social-link--facebook"
+                href="https://www.facebook.com/bigmama.burgersandfries/"
+                target="_blank"
+                rel="noopener noreferrer"
+              aria-label="Follow Big Mama Burgers on Facebook — opens in a new tab"
+              >
+                <img src="public/assets/social/facebook-cta.png" alt="" width="512" height="512" loading="lazy" decoding="async" />
+              </a>
+              <a
+                class="location-social-link location-social-link--tiktok"
+                href="https://www.tiktok.com/@bigmama.burgers"
+                target="_blank"
+                rel="noopener noreferrer"
+              aria-label="Follow Big Mama Burgers on TikTok — opens in a new tab"
+              >
+                <img src="public/assets/social/tiktok-cta.png" alt="" width="512" height="512" loading="lazy" decoding="async" />
+              </a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer" aria-label="Site information">
+      <p>© Big Mama Burgers n&apos; Fries</p>
+      <nav class="footer-links" aria-label="Legal links">
+        <a href="privacy-policy/">Privacy Policy</a>
+        <a href="cookie-policy/">Cookie Policy</a>
+        <button class="footer-links__button" type="button" data-cookie-settings>Cookie settings</button>
+      </nav>
+    </footer>
+
+    <div data-legacy-consent-root hidden>
+      <section class="cookie-consent" data-cookie-banner aria-label="Cookie consent" role="region" hidden>
+        <div class="cookie-consent__copy">
+          <p class="cookie-consent__eyebrow">YOUR PRIVACY</p>
+          <h2>Cookies, your choice.</h2>
+          <p>
+            We use essential technologies to run this site. Optional analytics and marketing cookies stay off unless you choose otherwise. Read our
+            <a href="cookie-policy/">Cookie Policy</a> and <a href="privacy-policy/">Privacy Policy</a>.
+          </p>
+        </div>
+        <div class="cookie-consent__actions">
+          <button class="cookie-consent__button cookie-consent__button--secondary" type="button" data-consent-reject>Reject all</button>
+          <button class="cookie-consent__button cookie-consent__button--secondary" type="button" data-consent-open>Settings</button>
+          <button class="cookie-consent__button" type="button" data-consent-accept>Accept all</button>
+        </div>
+      </section>
+
+      <dialog class="cookie-settings" data-cookie-settings-dialog aria-labelledby="cookie-settings-title">
+        <form class="cookie-settings__panel" method="dialog">
+          <div class="cookie-settings__header">
+            <div>
+              <p class="cookie-consent__eyebrow">COOKIE SETTINGS</p>
+              <h2 id="cookie-settings-title">Control optional cookies</h2>
+            </div>
+            <button class="cookie-settings__close" type="button" aria-label="Close cookie settings" data-consent-close>×</button>
+          </div>
+          <p class="cookie-settings__intro">Essential storage is always on because it remembers this choice and enables core website functions.</p>
+          <label class="cookie-settings__option">
+            <span><strong>Essential</strong><small>Required to remember your privacy choice.</small></span>
+            <input type="checkbox" checked disabled aria-label="Essential cookies are always active" />
+          </label>
+          <label class="cookie-settings__option">
+            <span><strong>Analytics</strong><small>Helps us understand site use if Google Analytics is enabled in future.</small></span>
+            <input type="checkbox" data-consent-analytics />
+          </label>
+          <label class="cookie-settings__option">
+            <span><strong>Marketing</strong><small>Allows advertising and personalised marketing technologies if enabled in future.</small></span>
+            <input type="checkbox" data-consent-marketing />
+          </label>
+          <div class="cookie-settings__actions">
+            <button class="cookie-consent__button cookie-consent__button--secondary" type="button" data-consent-reject>Reject all</button>
+            <button class="cookie-consent__button" type="button" data-consent-save>Save choices</button>
+          </div>
+          <p class="cookie-settings__legal"><a href="cookie-policy/">Cookie Policy</a> <a href="privacy-policy/">Privacy Policy</a></p>
+        </form>
+      </dialog>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+    <script src="reviews-orbit.js"></script>
+  </body>
+</html>

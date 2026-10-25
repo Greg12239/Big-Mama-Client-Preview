@@ -1,0 +1,32 @@
+{
+  "project": "Big Mama Burgers n' Fries",
+  "mode": "STRICT_CONTROLLED_CODEX_READY",
+  "created_at": "2026-07-05T13:47:11.877027Z",
+  "source_zip": "Bg.zip",
+  "baseline_folder": ".approved-baseline",
+  "codex_entrypoint": "AGENTS.md",
+  "rules": [
+    "No edits without explicit approval",
+    "No redesign unless explicitly requested",
+    "Use approved baseline for restore",
+    "Use CSS/vanilla JS first",
+    "No fake business data",
+    "No dependency additions without approval"
+  ],
+  "skills": [
+    "strict-change-control",
+    "safe-restore",
+    "modern-web-design-controlled",
+    "motion-controlled",
+    "mobile-conversion-controlled",
+    "seo-controlled"
+  ],
+  "prompts": [
+    "00_START_HERE_STRICT_MODE.md",
+    "01_SAFE_TASK_TEMPLATE.md",
+    "02_RESTORE_APPROVED_BASELINE.md",
+    "03_MENU_RESTORE_ONLY.md",
+    "04_MOTION_CONTROLLED_TASK.md",
+    "05_SEO_CONTROLLED_TASK.md"
+  ]
+}

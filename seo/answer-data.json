@@ -1,0 +1,449 @@
+{
+  "languageStrategy": "USER_DECISION_REQUIRED",
+  "publicationPolicy": "Phase 4 integration approval and all factual dependencies are required.",
+  "recordContract": {
+    "hiddenContentAllowed": false,
+    "interactionOnlyAllowed": false,
+    "schemaOnlyClaimsAllowed": false,
+    "visibleSemanticHtmlRequired": true
+  },
+  "recordCount": 20,
+  "records": [
+    {
+      "canonicalQuestion": "What is Big Mama Burgers n' Fries?",
+      "conciseAnswer": "Big Mama Burgers n' Fries is a restaurant in Nea Filadelfia with a visible menu of burgers, fries and cookies.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "Big Mama Burgers n' Fries is a restaurant in Nea Filadelfia with a visible menu of burgers, fries and cookies.",
+      "factualDependencies": [
+        "public_business_name",
+        "street_address",
+        "served_cuisine"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:what",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "informational",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "About or home"
+    },
+    {
+      "canonicalQuestion": "Where is it located?",
+      "conciseAnswer": "It is at Leof. Dekelias 114, Nea Filadelfia 143 41, Greece.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "location:nea-filadelfia"
+      ],
+      "expandedAnswer": "It is at Leof. Dekelias 114, Nea Filadelfia 143 41, Greece.",
+      "factualDependencies": [
+        "street_address",
+        "locality",
+        "postal_code",
+        "country"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:where",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "local-navigation",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "What are the opening hours?",
+      "conciseAnswer": "Posted regular hours are Monday-Friday 17:00-01:00, Saturday 15:00-02:00, and Sunday 14:00-01:00.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "Posted regular hours are Monday-Friday 17:00-01:00, Saturday 15:00-02:00, and Sunday 14:00-01:00.",
+      "factualDependencies": [
+        "opening_hours"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:hours",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "hours",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "Is it open now?",
+      "conciseAnswer": null,
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": null,
+      "factualDependencies": [
+        "opening_hours",
+        "timezone",
+        "holiday_hours_policy"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:open-now",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "hours",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "What timezone applies?",
+      "conciseAnswer": "The verified operating timezone is Europe/Athens.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The verified operating timezone is Europe/Athens.",
+      "factualDependencies": [
+        "timezone"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:timezone",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "hours",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "What food does it serve?",
+      "conciseAnswer": "The visible menu includes beef burgers, chicken burgers, a limited item, fries and cookies.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "menu:big-mama"
+      ],
+      "expandedAnswer": "The visible menu includes beef burgers, chicken burgers, a limited item, fries and cookies.",
+      "factualDependencies": [
+        "served_cuisine"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:food",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "What menu categories are available?",
+      "conciseAnswer": "The visible categories are Beef Burgers, Chicken Burgers, Limited, Fries and Cookies.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "menu:big-mama"
+      ],
+      "expandedAnswer": "The visible categories are Beef Burgers, Chicken Burgers, Limited, Fries and Cookies.",
+      "factualDependencies": [
+        "seo/menu.json"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:categories",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "Which beef burgers are available?",
+      "conciseAnswer": "The visible beef category lists Mama's Original Single, Bacon Lovers Double Burger and Truffle Oh Mama Double Burger.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "menu:big-mama"
+      ],
+      "expandedAnswer": "The visible beef category lists Mama's Original Single, Bacon Lovers Double Burger and Truffle Oh Mama Double Burger.",
+      "factualDependencies": [
+        "seo/menu.json"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:beef",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "Which chicken items are available?",
+      "conciseAnswer": "The visible chicken category lists Lava Mam' Chicken and Truffle Parmesan Chicken. Big Tokyo is shown with contradictory availability and is not claimed as available.",
+      "contradictionStatus": "ACTIVE",
+      "entityReferences": [
+        "menu:big-mama"
+      ],
+      "expandedAnswer": "The visible chicken category lists Lava Mam' Chicken and Truffle Parmesan Chicken. Big Tokyo is shown with contradictory availability and is not claimed as available.",
+      "factualDependencies": [
+        "seo/menu.json",
+        "big_tokyo_status"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:chicken",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "CONTRADICTORY",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "What is the current Limited item?",
+      "conciseAnswer": "Mama in Paris is displayed in the Limited category.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "product:mama-in-paris"
+      ],
+      "expandedAnswer": "Mama in Paris is displayed in the Limited category.",
+      "factualDependencies": [
+        "seo/menu.json"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:limited",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "Are fries available?",
+      "conciseAnswer": "Big Mama Fries are displayed on the menu as fresh hand-cut fries.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "product:big-mama-fries"
+      ],
+      "expandedAnswer": "Big Mama Fries are displayed on the menu as fresh hand-cut fries.",
+      "factualDependencies": [
+        "seo/menu.json"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:fries",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "Are cookies available?",
+      "conciseAnswer": "Original Double Choco Cookie is displayed in the Cookies category.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "product:original-double-choco-cookie"
+      ],
+      "expandedAnswer": "Original Double Choco Cookie is displayed in the Cookies category.",
+      "factualDependencies": [
+        "seo/menu.json"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:cookies",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Menu"
+    },
+    {
+      "canonicalQuestion": "Does the restaurant deliver?",
+      "conciseAnswer": "The website links to Wolt and efood; current delivery area and availability must be confirmed with the selected provider.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The website links to Wolt and efood; current delivery area and availability must be confirmed with the selected provider.",
+      "factualDependencies": [
+        "wolt_url",
+        "efood_url"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:delivery",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "transactional",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Order"
+    },
+    {
+      "canonicalQuestion": "Is ordering available through Wolt?",
+      "conciseAnswer": "The website provides a Wolt ordering link; current provider availability must be confirmed on Wolt.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The website provides a Wolt ordering link; current provider availability must be confirmed on Wolt.",
+      "factualDependencies": [
+        "wolt_url",
+        "order_cta"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:wolt",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "transactional",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Order"
+    },
+    {
+      "canonicalQuestion": "Is ordering available through efood?",
+      "conciseAnswer": "The website provides an efood ordering link; current provider availability must be confirmed on efood.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The website provides an efood ordering link; current provider availability must be confirmed on efood.",
+      "factualDependencies": [
+        "efood_url",
+        "order_cta"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:efood",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "transactional",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Order"
+    },
+    {
+      "canonicalQuestion": "What is the telephone number?",
+      "conciseAnswer": "The verified public telephone number is +30 216 003 3303.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The verified public telephone number is +30 216 003 3303.",
+      "factualDependencies": [
+        "public_telephone"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:telephone",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": "2026-07-18",
+      "publicationStatus": "PREVIEW_ONLY",
+      "schemaRelationship": null,
+      "userIntent": "contact",
+      "verificationStatus": "VERIFIED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "How can customers get directions?",
+      "conciseAnswer": "The current site provides a Google Maps directions link for the verified street address.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "location:nea-filadelfia"
+      ],
+      "expandedAnswer": "The current site provides a Google Maps directions link for the verified street address.",
+      "factualDependencies": [
+        "street_address",
+        "google_business_profile"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:directions",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "navigation",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Location"
+    },
+    {
+      "canonicalQuestion": "How can customers read reviews?",
+      "conciseAnswer": "The current site links to a Google Maps place page; the production review destination still requires external verification.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "The current site links to a Google Maps place page; the production review destination still requires external verification.",
+      "factualDependencies": [
+        "google_business_profile"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:reviews",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "review",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Reviews"
+    },
+    {
+      "canonicalQuestion": "How can customers contact the business?",
+      "conciseAnswer": "Customers can use the verified public telephone number. A public email decision is still required.",
+      "contradictionStatus": "NONE",
+      "entityReferences": [
+        "business:big-mama"
+      ],
+      "expandedAnswer": "Customers can use the verified public telephone number. A public email decision is still required.",
+      "factualDependencies": [
+        "public_telephone",
+        "public_email",
+        "contact_cta"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:contact",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "contact",
+      "verificationStatus": "SETUP_REQUIRED",
+      "visibleSourceSection": "Contact"
+    },
+    {
+      "canonicalQuestion": "Is Big Tokyo currently available?",
+      "conciseAnswer": null,
+      "contradictionStatus": "ACTIVE",
+      "entityReferences": [
+        "product:big-tokyo"
+      ],
+      "expandedAnswer": null,
+      "factualDependencies": [
+        "big_tokyo_status"
+      ],
+      "freshnessDependency": "Reverify after material menu, hours, provider or business-fact change.",
+      "id": "answer:big-tokyo",
+      "language": "en-pending-strategy",
+      "lastVerifiedDate": null,
+      "publicationStatus": "BLOCKED",
+      "schemaRelationship": null,
+      "userIntent": "menu",
+      "verificationStatus": "CONTRADICTORY",
+      "visibleSourceSection": "Menu"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "status": "USER_DECISION_REQUIRED"
+}

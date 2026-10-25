@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "SETUP_REQUIRED",
+  "market": {
+    "primary": "Nea Filadelfia",
+    "secondary": ["Northern Athens", "Central Athens", "Greater Athens"]
+  },
+  "competitorTypes": [
+    "organic",
+    "local-pack",
+    "maps",
+    "delivery-platform",
+    "burger-business",
+    "street-food-business",
+    "restaurant-business"
+  ],
+  "competitorEntityContract": {
+    "requiredFields": ["id", "name", "type", "verificationStatus", "sources", "firstObservedAt", "lastObservedAt"],
+    "optionalFields": ["websiteUrl", "listingUrl", "deliveryPlatformUrls", "notes"]
+  },
+  "observationContract": {
+    "requiredFields": [
+      "id",
+      "queryId",
+      "query",
+      "geographicLocation",
+      "device",
+      "language",
+      "timestamp",
+      "source",
+      "collectionMethod",
+      "competitorEntityId",
+      "rankOrPresence",
+      "pageOrListingUrl",
+      "confidence",
+      "freshness",
+      "limitations"
+    ],
+    "prohibitedWithoutEvidence": ["competitor identity", "rank", "presence", "traffic", "authority", "review metrics"]
+  },
+  "collectionPlans": [
+    {
+      "id": "competitor-plan:manual",
+      "method": "approved manual observation",
+      "status": "READY_FOR_AUTHORIZATION",
+      "networkRequired": true,
+      "instructions": [
+        "Use a declared query, location, language, and device context.",
+        "Record the visible result type and exact page or listing URL.",
+        "Capture timestamp, source, limitations, and confidence.",
+        "Keep organic, Local Pack, Maps, and delivery-platform observations separate."
+      ]
+    },
+    {
+      "id": "competitor-plan:api-assisted",
+      "method": "authorized API-assisted collection",
+      "status": "SETUP_REQUIRED",
+      "networkRequired": true,
+      "setupRequirements": ["Separate authorization", "Verified credentials", "Approved budget", "Provider terms review"]
+    }
+  ],
+  "competitors": [],
+  "observations": [],
+  "notes": "No competitor was inferred or fabricated. Collection plans are readiness documentation only and were not executed."
+}

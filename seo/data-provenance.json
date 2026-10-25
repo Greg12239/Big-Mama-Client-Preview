@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "classificationVocabulary": ["VERIFIED", "OBSERVED", "INFERRED", "UNKNOWN", "SETUP_REQUIRED", "NOT_APPLICABLE"],
+  "sources": [
+    {"id": "source:approved-master-prompt", "type": "USER_APPROVED_INPUT", "path": null, "capturedAt": "2026-07-14", "scope": ["business identity", "address", "coordinates", "telephone", "opening hours", "ordering URLs", "isolation policy"]},
+    {"id": "source:index-html", "type": "PROTECTED_REPOSITORY_FILE", "path": "index.html", "sha256": "56dcb0e68aee94cefe9f1dd07af1e25e92be11041a51a21cc446914a9bdd2534", "capturedAt": "2026-07-14", "scope": ["visible metadata", "menu", "NAP", "reviews", "links", "images"]},
+    {"id": "source:app-js", "type": "PROTECTED_REPOSITORY_FILE", "path": "app.js", "sha256": "7eb915157fbfab0d1474e4bc2baef8ec8317e04b09113c15c0af2499d0dfaec4", "capturedAt": "2026-07-14", "scope": ["coordinates", "map provider", "map pin"]},
+    {"id": "source:readme", "type": "PROTECTED_REPOSITORY_FILE", "path": "README.md", "sha256": "b8fc54076e1d1e81e0ec0d5cb3dadc377ad9fe6e5e262d9bb4fce931accb533f", "capturedAt": "2026-07-14", "scope": ["static deployment method", "production origin unavailable"]},
+    {"id": "source:phase2-execution-instruction", "type": "USER_APPROVED_INPUT", "path": null, "sha256": "5680508704f5e313e74c771bf884b3aa1c4d707f46f3116572eee0db96d9e9a8", "capturedAt": "2026-07-15", "scope": ["Phase 2 execution boundaries", "website isolation", "validation requirements"]},
+    {"id": "source:phase2-authorization", "type": "USER_APPROVED_INPUT", "path": null, "sha256": "7c870408b100372e8aee37a2e64f96cb27da1631d555f635a3e4d8e3410c3f5b", "capturedAt": "2026-07-15", "scope": ["isolated intelligence authorization", "integration readiness", "file-count reconciliation", "external integration prohibition"]}
+  ],
+  "externalDataCollection": {"performed": false, "credentialsChecked": false, "networkRequests": 0, "browserLaunches": 0},
+  "unknownDataRule": "Unknown values remain null and cannot be converted to empty strings or fabricated defaults.",
+  "productionEligibilityRule": "Only VERIFIED fields may be considered for future integration after separate approval."
+}

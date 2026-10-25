@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "locations": [
+    {
+      "id": "location:nea-filadelfia",
+      "businessId": "business:big-mama",
+      "name": "Big Mama Burgers n' Fries",
+      "type": "brick-and-mortar",
+      "address": {"streetAddress": "Leof. Dekelias 114", "addressLocality": "Nea Filadelfia", "postalCode": "143 41", "addressCountry": "GR"},
+      "geo": {"latitude": 38.0349902, "longitude": 23.7386331},
+      "telephone": "+30 216 003 3303",
+      "openingHoursRef": "business:big-mama#openingHours",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html", "app.js"],
+      "verifiedAt": "2026-07-14"
+    }
+  ]
+}

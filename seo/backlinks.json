@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "SETUP_REQUIRED",
+  "referringDomains": [],
+  "links": [],
+  "metrics": {"domainAuthority": null, "pageAuthority": null, "toxicLinks": null},
+  "notes": "No backlink data source or approved manual evidence process was authorized."
+}

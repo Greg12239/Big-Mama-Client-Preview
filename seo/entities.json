@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "idStrategy": "Portable internal IDs are used until a production origin is verified; public @id values remain null.",
+  "entities": [
+    {"id": "entity:website", "type": "WebSite", "publicId": null, "status": "SETUP_REQUIRED", "dependsOn": ["decision:production-origin"]},
+    {"id": "entity:webpage:home", "type": "WebPage", "publicId": null, "status": "SETUP_REQUIRED", "dependsOn": ["entity:website", "decision:production-origin"]},
+    {"id": "entity:restaurant:nea-filadelfia", "type": "Restaurant", "publicId": null, "status": "PREVIEW_READY", "dependsOn": ["business:big-mama", "location:nea-filadelfia"]},
+    {"id": "entity:place:nea-filadelfia", "type": "Place", "publicId": null, "status": "PLANNING_ONLY", "dependsOn": ["location:nea-filadelfia"], "schemaPreviewRule": "OMIT_WHEN_RESTAURANT_ALREADY_MODELS_THE_SAME_PHYSICAL_PLACE"},
+    {"id": "entity:postal-address:nea-filadelfia", "type": "PostalAddress", "publicId": null, "status": "PREVIEW_READY", "dependsOn": ["location:nea-filadelfia"]},
+    {"id": "entity:geo:nea-filadelfia", "type": "GeoCoordinates", "publicId": null, "status": "PREVIEW_READY", "dependsOn": ["location:nea-filadelfia"]},
+    {"id": "entity:menu", "type": "Menu", "publicId": null, "status": "PREVIEW_READY", "dependsOn": ["menu:big-mama"]},
+    {"id": "entity:image:social", "type": "ImageObject", "publicId": null, "status": "SETUP_REQUIRED", "dependsOn": ["decision:production-origin", "decision:social-image"]}
+  ],
+  "entityFamilies": {
+    "menuSections": {
+      "type": "MenuSection",
+      "source": "seo/menu.json#categories",
+      "expectedCount": 5,
+      "status": "PREVIEW_READY"
+    },
+    "menuItems": {
+      "type": "MenuItem",
+      "source": "seo/menu.json#products",
+      "expectedSourceCount": 9,
+      "blockedEntityIds": ["product:big-tokyo"],
+      "previewEligibleCount": 8,
+      "status": "PASS_WITH_BLOCKED_CONTRADICTION"
+    },
+    "imageObjects": {
+      "type": "ImageObject",
+      "source": "seo/image-data.json#socialImageReadiness",
+      "status": "SETUP_REQUIRED",
+      "reason": "No approved absolute public image URL exists."
+    }
+  },
+  "graphRules": [
+    "Do not emit WebSite or WebPage without a verified production origin.",
+    "Do not duplicate Restaurant with Organization for the same business identity.",
+    "Do not emit a separate Place node when Restaurant already represents the same physical location.",
+    "Do not emit ImageObject without an approved absolute public image URL.",
+    "Exclude Big Tokyo until its availability contradiction is resolved."
+  ]
+}

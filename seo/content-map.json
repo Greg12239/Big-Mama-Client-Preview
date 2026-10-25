@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "currentPage": {
+    "path": "index.html",
+    "language": "en",
+    "sections": ["hero", "trust", "reviews", "menu", "location", "order", "campaign", "footer"],
+    "wordCount": 807,
+    "verificationStatus": "OBSERVED"
+  },
+  "answerCoverage": {
+    "covered": ["location", "weekly hours", "telephone", "ordering platforms", "menu categories", "product descriptions", "directions"],
+    "partial": ["delivery coverage", "review destination"],
+    "blocked": ["real-time open status", "holiday hours", "production-domain URLs"]
+  },
+  "answerPlacementReadiness": [
+    {"topic": "location", "sourceRecordIds": ["answer:where", "answer:nea-filadelfia", "answer:directions"], "futureVisiblePlacement": "location", "publicationStatus": "PREVIEW_ONLY"},
+    {"topic": "opening hours", "sourceRecordIds": ["answer:hours", "answer:open-now"], "futureVisiblePlacement": "location", "publicationStatus": "PREVIEW_ONLY_WITH_BLOCKED_REAL_TIME_ANSWER"},
+    {"topic": "ordering and delivery", "sourceRecordIds": ["answer:order", "answer:delivery", "answer:platforms"], "futureVisiblePlacement": "order", "publicationStatus": "PREVIEW_ONLY"},
+    {"topic": "menu", "sourceRecordIds": ["answer:categories", "answer:burgers", "answer:chicken", "answer:limited", "answer:fries", "answer:mama-in-paris"], "futureVisiblePlacement": "menu", "publicationStatus": "PREVIEW_ONLY"},
+    {"topic": "reviews", "sourceRecordIds": ["answer:review"], "futureVisiblePlacement": "reviews", "publicationStatus": "PREVIEW_ONLY"}
+  ],
+  "planningRecommendations": [
+    {"id": "content:greek-first-evaluation", "status": "RECOMMENDATION_ONLY", "reason": "The primary local market is Greek-speaking while the current HTML language is English."},
+    {"id": "content:visible-answer-blocks", "status": "RECOMMENDATION_ONLY", "reason": "Approved factual answers could improve accessibility and answer retrieval after separate website integration approval."},
+    {"id": "content:no-doorway-pages", "status": "POLICY", "reason": "Do not create city-swapped pages for Athens areas without legitimate unique local value."}
+  ],
+  "hiddenAeoContentAllowed": false,
+  "websiteIntegrationStatus": "PROHIBITED"
+}

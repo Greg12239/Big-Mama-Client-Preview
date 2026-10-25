@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "entityId": "business:big-mama",
+  "businessType": "Restaurant",
+  "fields": {
+    "canonicalBrandName": {
+      "value": "Big Mama Burgers n' Fries",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "address": {
+      "value": {
+        "streetAddress": "Leof. Dekelias 114",
+        "addressLocality": "Nea Filadelfia",
+        "postalCode": "143 41",
+        "addressCountry": "GR"
+      },
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "telephone": {
+      "value": "+30 216 003 3303",
+      "normalizedValue": "+302160033303",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "geo": {
+      "value": {"latitude": 38.0349902, "longitude": 23.7386331},
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "app.js"],
+      "verifiedAt": "2026-07-14"
+    },
+    "openingHours": {
+      "value": [
+        {"days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "17:00", "closes": "01:00"},
+        {"days": ["Saturday"], "opens": "15:00", "closes": "02:00"},
+        {"days": ["Sunday"], "opens": "14:00", "closes": "01:00"}
+      ],
+      "timeZone": "Europe/Athens",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "orderingUrls": {
+      "value": {
+        "wolt": "https://wolt.com/el/grc/athens/restaurant/big-mamma-ath",
+        "efood": "https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071"
+      },
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["approved-master-prompt", "index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "directionsUrl": {
+      "value": "https://www.google.com/maps/dir/?api=1&destination=Big%20Mama%20Burgers%20n%27%20Fries%2C%20Leof.%20Dekelias%20114%2C%20Nea%20Filadelfia%20143%2041%2C%20Greece",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "mapsUrl": {
+      "value": "https://www.google.com/maps/place/Big+Mama+Burgers+n%27+Fries/@38.0331785,23.7426529,15z/data=!4m8!3m7!1s0x14a1a30032ac5caf:0x1dd5a61efd0f5935!8m2!3d38.0349902!4d23.7386331!9m1!1b1!16s%2Fg%2F11y06nrmlf",
+      "verificationStatus": "OBSERVED",
+      "verificationSources": ["index.html"],
+      "verifiedAt": null
+    },
+    "primaryLanguage": {
+      "value": "en",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["index.html:html@lang"],
+      "verifiedAt": "2026-07-14"
+    },
+    "productionOrigin": {
+      "value": null,
+      "verificationStatus": "SETUP_REQUIRED",
+      "verificationSources": [],
+      "verifiedAt": null,
+      "notes": "No canonical, configured domain, or repository remote verifies a production origin."
+    },
+    "publicEmail": {"value": null, "verificationStatus": "UNKNOWN", "verificationSources": [], "verifiedAt": null},
+    "socialProfiles": {"value": [], "verificationStatus": "UNKNOWN", "verificationSources": [], "verifiedAt": null},
+    "logoPath": {
+      "value": "public/assets/logo/big-mama-logo-transparent.png",
+      "verificationStatus": "VERIFIED",
+      "verificationSources": ["index.html"],
+      "verifiedAt": "2026-07-14"
+    },
+    "socialImageUrl": {"value": null, "verificationStatus": "SETUP_REQUIRED", "verificationSources": [], "verifiedAt": null}
+  },
+  "lastReviewedAt": "2026-07-14"
+}

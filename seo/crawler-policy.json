@@ -1,0 +1,86 @@
+{
+  "blockedBy": [
+    "search_crawler_policy",
+    "ai_search_crawler_policy",
+    "ai_training_crawler_policy",
+    "unknown_crawler_policy",
+    "canonical_home_url"
+  ],
+  "categories": [
+    {
+      "decision": null,
+      "examples": [
+        "Googlebot",
+        "Bingbot"
+      ],
+      "id": "search_indexing",
+      "label": "SEARCH AND INDEXING CRAWLERS",
+      "purpose": "Search crawling and indexing eligibility",
+      "status": "USER_DECISION_REQUIRED"
+    },
+    {
+      "decision": null,
+      "examples": [
+        "OAI-SearchBot"
+      ],
+      "id": "ai_search",
+      "label": "AI SEARCH AND CITATION CRAWLERS",
+      "purpose": "Search answers and citations; independent of training",
+      "status": "USER_DECISION_REQUIRED"
+    },
+    {
+      "decision": null,
+      "examples": [
+        "GPTBot"
+      ],
+      "id": "ai_training",
+      "label": "AI TRAINING CRAWLERS",
+      "purpose": "Model training consent; independent of search",
+      "status": "USER_DECISION_REQUIRED"
+    },
+    {
+      "decision": null,
+      "examples": [
+        "AdsBot-Google"
+      ],
+      "id": "ad_validation",
+      "label": "AD AND VALIDATION CRAWLERS",
+      "purpose": "Advertising and validation where used",
+      "status": "USER_DECISION_REQUIRED"
+    },
+    {
+      "decision": null,
+      "examples": [],
+      "id": "unknown",
+      "label": "UNKNOWN CRAWLERS",
+      "purpose": "Default standards-compliant crawler treatment",
+      "status": "USER_DECISION_REQUIRED"
+    },
+    {
+      "decision": "USE_SECURITY_CONTROLS_NOT_ROBOTS_AS_PRIMARY_CONTROL",
+      "examples": [],
+      "id": "malicious",
+      "label": "MALICIOUS OR ABUSIVE CRAWLERS",
+      "purpose": "Rate limiting, hosting and security controls",
+      "status": "APPROVED_SAFEGUARD"
+    }
+  ],
+  "llmsTxt": {
+    "reason": "No official Google ranking requirement; no user approval for an optional platform policy file.",
+    "status": "NOT_APPLICABLE"
+  },
+  "previewOnly": true,
+  "productionEligible": false,
+  "productionOrigin": null,
+  "safeguards": [
+    "Do not block CSS, JavaScript or production images needed to render indexable pages.",
+    "Do not use robots.txt as a security mechanism.",
+    "Do not block a page when a crawler must read its noindex directive.",
+    "Keep staging and production policies separate.",
+    "Do not claim llms.txt as a Google ranking requirement.",
+    "Do not emit experimental directives without official support and user approval."
+  ],
+  "schemaVersion": "1.0.0",
+  "sitemapUrl": null,
+  "status": "USER_DECISION_REQUIRED"
+}

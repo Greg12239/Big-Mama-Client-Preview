@@ -1,0 +1,844 @@
+{
+  "asOfDate": "2026-07-18",
+  "fieldCount": 44,
+  "fields": [
+    {
+      "affectedOutputs": [
+        "metadata",
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "public_business_name",
+      "label": "PUBLIC BUSINESS NAME",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Brand name is consistent in the frozen source.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "Big Mama Burgers n' Fries"
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "legal-copy"
+      ],
+      "confidence": "LOW",
+      "id": "legal_business_name",
+      "label": "LEGAL BUSINESS NAME",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No legal entity name is approved; NOT_APPLICABLE is an allowed user decision.",
+      "source": [],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "head-preview",
+        "schema-preview",
+        "sitemap-preview",
+        "robots-preview"
+      ],
+      "confidence": "HIGH",
+      "id": "production_origin",
+      "label": "PRODUCTION ORIGIN",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No production origin is verified.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "head-preview",
+        "schema-preview",
+        "sitemap-preview",
+        "robots-preview"
+      ],
+      "confidence": "HIGH",
+      "id": "preferred_hostname",
+      "label": "PREFERRED HOSTNAME",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "www/non-www preference depends on the production origin.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "canonical",
+        "redirects",
+        "deployment"
+      ],
+      "confidence": "HIGH",
+      "id": "https_status",
+      "label": "HTTPS STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No authorized production endpoint was tested.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "deployment",
+        "redirects",
+        "404"
+      ],
+      "confidence": "LOW",
+      "id": "hosting_platform",
+      "label": "HOSTING PLATFORM",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Repository evidence does not establish the final hosting platform.",
+      "source": [],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "deployment",
+        "ci"
+      ],
+      "confidence": "LOW",
+      "id": "deployment_branch",
+      "label": "DEPLOYMENT BRANCH",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No deployment branch is approved.",
+      "source": [],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "head-preview",
+        "schema-preview",
+        "sitemap-preview",
+        "robots-preview"
+      ],
+      "confidence": "HIGH",
+      "id": "canonical_home_url",
+      "label": "CANONICAL HOME URL",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Cannot be derived until origin and hostname are approved.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "public_telephone",
+      "label": "PUBLIC TELEPHONE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Phone is verified in local source evidence.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "+30 216 003 3303"
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "contact",
+        "schema"
+      ],
+      "confidence": "HIGH",
+      "id": "public_email",
+      "label": "PUBLIC EMAIL OR EXPLICIT EMAIL REMOVAL",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "The current .example address is a placeholder and is not production eligible.",
+      "source": [
+        "index.html#placeholder-email"
+      ],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "street_address",
+      "label": "STREET ADDRESS",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Address is verified in frozen evidence.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "Leof. Dekelias 114"
+    },
+    {
+      "affectedOutputs": [
+        "metadata",
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "locality",
+      "label": "LOCALITY",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Locality is verified in frozen evidence.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "Nea Filadelfia"
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "postal_code",
+      "label": "POSTAL CODE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Postal code is verified in frozen evidence.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "143 41"
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "country",
+      "label": "COUNTRY",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Country code is verified in the local contract.",
+      "source": [
+        "schema",
+        "local-search"
+      ],
+      "status": "VERIFIED",
+      "value": "GR"
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "maps"
+      ],
+      "confidence": "HIGH",
+      "id": "latitude",
+      "label": "LATITUDE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Latitude is consistent in frozen source evidence.",
+      "source": [
+        "seo/business.json",
+        "app.js"
+      ],
+      "status": "VERIFIED",
+      "value": 38.0349902
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "maps"
+      ],
+      "confidence": "HIGH",
+      "id": "longitude",
+      "label": "LONGITUDE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Longitude is consistent in frozen source evidence.",
+      "source": [
+        "seo/business.json",
+        "app.js"
+      ],
+      "status": "VERIFIED",
+      "value": 23.7386331
+    },
+    {
+      "affectedOutputs": [
+        "hours",
+        "open-now",
+        "schema"
+      ],
+      "confidence": "HIGH",
+      "id": "timezone",
+      "label": "TIMEZONE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Timezone is approved in the Phase 2 contract.",
+      "source": [
+        "seo/business.json"
+      ],
+      "status": "VERIFIED",
+      "value": "Europe/Athens"
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "local-search",
+        "answers"
+      ],
+      "confidence": "HIGH",
+      "id": "opening_hours",
+      "label": "VERIFIED OPENING HOURS",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "Regular posted hours are verified; holiday exceptions remain separate.",
+      "source": [
+        "seo/business.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": [
+        {
+          "closes": "01:00",
+          "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "17:00"
+        },
+        {
+          "closes": "02:00",
+          "days": [
+            "Saturday"
+          ],
+          "opens": "15:00"
+        },
+        {
+          "closes": "01:00",
+          "days": [
+            "Sunday"
+          ],
+          "opens": "14:00"
+        }
+      ]
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "open-now",
+        "operations"
+      ],
+      "confidence": "HIGH",
+      "id": "holiday_hours_policy",
+      "label": "HOLIDAY-HOURS OPERATING POLICY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No holiday or exceptional-hours owner is defined.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "business-profiles",
+        "metadata"
+      ],
+      "confidence": "HIGH",
+      "id": "primary_business_category",
+      "label": "PRIMARY BUSINESS CATEGORY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Restaurant is supported, but the operational primary profile category requires approval.",
+      "source": [
+        "seo/business.json#businessType=Restaurant"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "metadata",
+        "answers"
+      ],
+      "confidence": "HIGH",
+      "id": "served_cuisine",
+      "label": "SERVED CUISINE",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "The visible menu supports burgers as served cuisine.",
+      "source": [
+        "seo/menu.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": [
+        "Burgers"
+      ]
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "visible-content"
+      ],
+      "confidence": "HIGH",
+      "id": "price_range",
+      "label": "PRICE-RANGE DECISION",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No supportable public price range is present; removal is allowed.",
+      "source": [
+        "seo/menu.json#prohibitedUnknowns.prices"
+      ],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "ordering",
+        "local-search",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "wolt_url",
+      "label": "WOLT URL",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "URL is verified in frozen local source; live provider availability was not checked.",
+      "source": [
+        "seo/business.json",
+        "seo/menu.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "https://wolt.com/el/grc/athens/restaurant/big-mamma-ath"
+    },
+    {
+      "affectedOutputs": [
+        "ordering",
+        "local-search",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "efood_url",
+      "label": "EFOOD URL",
+      "lastVerifiedDate": "2026-07-14",
+      "productionEligible": true,
+      "reason": "URL is verified in frozen local source; live provider availability was not checked.",
+      "source": [
+        "seo/business.json",
+        "seo/menu.json",
+        "index.html"
+      ],
+      "status": "VERIFIED",
+      "value": "https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071"
+    },
+    {
+      "affectedOutputs": [
+        "schema",
+        "local-search",
+        "reviews"
+      ],
+      "confidence": "MEDIUM",
+      "id": "google_business_profile",
+      "label": "GOOGLE BUSINESS PROFILE URL OR PLACE IDENTIFIER",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "A Maps URL is observed, but profile ownership/current identity is not externally verified.",
+      "source": [
+        "index.html#review-link"
+      ],
+      "status": "UNKNOWN",
+      "value": "https://www.google.com/maps/place/Big+Mama+Burgers+n%27+Fries/@38.0331785,23.7426529,15z/data=!4m8!3m7!1s0x14a1a30032ac5caf:0x1dd5a61efd0f5935!8m2!3d38.0349902!4d23.7386331!9m1!1b1!16s%2Fg%2F11y06nrmlf"
+    },
+    {
+      "affectedOutputs": [
+        "sameAs",
+        "social",
+        "local-search"
+      ],
+      "confidence": "HIGH",
+      "id": "social_profiles",
+      "label": "VERIFIED SOCIAL-PROFILE URLS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No official social profiles are verified.",
+      "source": [
+        "seo/business.json"
+      ],
+      "status": "UNKNOWN",
+      "value": []
+    },
+    {
+      "affectedOutputs": [
+        "open-graph",
+        "social-preview",
+        "schema"
+      ],
+      "confidence": "HIGH",
+      "id": "approved_social_image",
+      "label": "APPROVED SOCIAL IMAGE",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No absolute production image URL is approved.",
+      "source": [
+        "seo/image-data.json"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "menu",
+        "schema",
+        "answers",
+        "ordering"
+      ],
+      "confidence": "HIGH",
+      "id": "big_tokyo_status",
+      "label": "BIG TOKYO STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "COMING SOON conflicts with enabled order actions.",
+      "source": [
+        "seo/menu.json",
+        "index.html#big-tokyo"
+      ],
+      "status": "CONTRADICTORY",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "reviews"
+      ],
+      "confidence": "HIGH",
+      "id": "displayed_rating",
+      "label": "DISPLAYED RATING EVIDENCE OR REMOVAL",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "The displayed value lacks approved source/date/count evidence.",
+      "source": [
+        "index.html#review-rating=4.8"
+      ],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "schema",
+        "reviews"
+      ],
+      "confidence": "HIGH",
+      "id": "review_count",
+      "label": "REVIEW-COUNT EVIDENCE OR REMOVAL",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No current verified aggregate review count is approved.",
+      "source": [
+        "index.html#reviews"
+      ],
+      "status": "UNKNOWN",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "html-lang",
+        "content",
+        "canonical",
+        "hreflang",
+        "sitemap"
+      ],
+      "confidence": "HIGH",
+      "id": "language_strategy",
+      "label": "LANGUAGE STRATEGY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "The current declaration is observed; production architecture is not approved.",
+      "source": [
+        "index.html#html-lang=en"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "robots",
+        "indexing"
+      ],
+      "confidence": "HIGH",
+      "id": "search_crawler_policy",
+      "label": "SEARCH-CRAWLER POLICY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Search indexing crawler policy requires explicit approval.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "robots",
+        "ai-search"
+      ],
+      "confidence": "HIGH",
+      "id": "ai_search_crawler_policy",
+      "label": "AI-SEARCH/ANSWER CRAWLER POLICY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "AI search access must be decided separately from training.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "robots",
+        "ai-training"
+      ],
+      "confidence": "HIGH",
+      "id": "ai_training_crawler_policy",
+      "label": "AI-TRAINING CRAWLER POLICY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "AI training consent requires an explicit decision.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "robots",
+        "security"
+      ],
+      "confidence": "HIGH",
+      "id": "unknown_crawler_policy",
+      "label": "UNKNOWN-CRAWLER POLICY",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Unknown-crawler default policy is not approved.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "analytics",
+        "privacy",
+        "legal-copy"
+      ],
+      "confidence": "HIGH",
+      "id": "analytics_consent",
+      "label": "COOKIE/ANALYTICS CONSENT DECISION",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No consent and privacy architecture is approved.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "privacy",
+        "analytics"
+      ],
+      "confidence": "HIGH",
+      "id": "public_legal_copy",
+      "label": "PUBLIC LEGAL COPY STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Legal copy remains a placeholder.",
+      "source": [
+        "index.html#legal-placeholder"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "contact_cta",
+      "label": "CONTACT CTA DECISION",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Phone/email/directions contact behavior requires production approval.",
+      "source": [
+        "index.html#contact"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "visible-content",
+        "measurement",
+        "ordering"
+      ],
+      "confidence": "HIGH",
+      "id": "order_cta",
+      "label": "ORDER CTA DECISION",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Current provider actions are observed but not approved as the production contract.",
+      "source": [
+        "index.html#provider-links"
+      ],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "analytics",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "analytics_property",
+      "label": "ANALYTICS PROPERTY STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No authorized analytics property is identified.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "verification",
+        "sitemap",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "search_console",
+      "label": "SEARCH CONSOLE STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No account or property access is authorized.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "verification",
+        "sitemap",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "bing_webmaster",
+      "label": "BING WEBMASTER STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No account or site access is authorized.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "key",
+        "submission",
+        "ci"
+      ],
+      "confidence": "HIGH",
+      "id": "indexnow",
+      "label": "INDEXNOW STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "No host, key, endpoint workflow, or authorization is approved.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    },
+    {
+      "affectedOutputs": [
+        "google-business-profile",
+        "local-search",
+        "measurement"
+      ],
+      "confidence": "HIGH",
+      "id": "business_profile_management",
+      "label": "BUSINESS PROFILE MANAGEMENT STATUS",
+      "lastVerifiedDate": null,
+      "productionEligible": false,
+      "reason": "Profile ownership/access has not been established.",
+      "source": [],
+      "status": "SETUP_REQUIRED",
+      "value": null
+    }
+  ],
+  "phase": "3B",
+  "productionReady": false,
+  "schemaVersion": "1.0.0",
+  "statusCounts": {
+    "CONTRADICTORY": 1,
+    "SETUP_REQUIRED": 21,
+    "UNKNOWN": 9,
+    "VERIFIED": 13
+  },
+  "unresolvedCount": 31,
+  "unresolvedFieldIds": [
+    "legal_business_name",
+    "production_origin",
+    "preferred_hostname",
+    "https_status",
+    "hosting_platform",
+    "deployment_branch",
+    "canonical_home_url",
+    "public_email",
+    "holiday_hours_policy",
+    "primary_business_category",
+    "price_range",
+    "google_business_profile",
+    "social_profiles",
+    "approved_social_image",
+    "big_tokyo_status",
+    "displayed_rating",
+    "review_count",
+    "language_strategy",
+    "search_crawler_policy",
+    "ai_search_crawler_policy",
+    "ai_training_crawler_policy",
+    "unknown_crawler_policy",
+    "analytics_consent",
+    "public_legal_copy",
+    "contact_cta",
+    "order_cta",
+    "analytics_property",
+    "search_console",
+    "bing_webmaster",
+    "indexnow",
+    "business_profile_management"
+  ],
+  "websiteIntegrationStatus": "BLOCKED"
+}

@@ -1,0 +1,110 @@
+{
+  "blockedProductIds": [
+    "product:big-tokyo"
+  ],
+  "category": {
+    "status": "USER_DECISION_REQUIRED",
+    "value": null
+  },
+  "cuisine": {
+    "status": "VERIFIED_LOCAL_SOURCE",
+    "value": [
+      "Burgers"
+    ]
+  },
+  "entityId": "business:big-mama",
+  "externalCorrectionPolicy": {
+    "automaticOverwrite": false,
+    "requiredFields": [
+      "field",
+      "observedValue",
+      "approvedValue",
+      "platform",
+      "evidence",
+      "recommendedAction",
+      "risk",
+      "authorizationRequired"
+    ]
+  },
+  "externalObservations": [],
+  "geo": {
+    "latitude": 38.0349902,
+    "longitude": 23.7386331,
+    "status": "VERIFIED_LOCAL_SOURCE"
+  },
+  "hours": {
+    "holidayPolicy": null,
+    "regular": [
+      {
+        "closes": "01:00",
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "17:00"
+      },
+      {
+        "closes": "02:00",
+        "days": [
+          "Saturday"
+        ],
+        "opens": "15:00"
+      },
+      {
+        "closes": "01:00",
+        "days": [
+          "Sunday"
+        ],
+        "opens": "14:00"
+      }
+    ],
+    "status": "USER_DECISION_REQUIRED_FOR_EXCEPTIONS",
+    "timeZone": "Europe/Athens"
+  },
+  "limitation": "No external listing was accessed or verified in Phase 3B.",
+  "menuRef": "seo/menu.json",
+  "nap": {
+    "address": {
+      "addressCountry": "GR",
+      "addressLocality": "Nea Filadelfia",
+      "postalCode": "143 41",
+      "streetAddress": "Leof. Dekelias 114"
+    },
+    "name": "Big Mama Burgers n' Fries",
+    "status": "VERIFIED_LOCAL_SOURCE",
+    "telephone": "+30 216 003 3303"
+  },
+  "orderingUrls": {
+    "efood": "https://www.e-food.gr/delivery/nea-filadelfeia/big-mama-8408071",
+    "wolt": "https://wolt.com/el/grc/athens/restaurant/big-mamma-ath"
+  },
+  "parityTargets": [
+    "website",
+    "schema",
+    "sitemap",
+    "Google Business Profile",
+    "Bing business data",
+    "Wolt",
+    "efood",
+    "verified citations",
+    "map links",
+    "contact CTAs"
+  ],
+  "reviewDestination": {
+    "status": "EXTERNAL_AUTHORIZATION_REQUIRED",
+    "value": "https://www.google.com/maps/place/Big+Mama+Burgers+n%27+Fries/@38.0331785,23.7426529,15z/data=!4m8!3m7!1s0x14a1a30032ac5caf:0x1dd5a61efd0f5935!8m2!3d38.0349902!4d23.7386331!9m1!1b1!16s%2Fg%2F11y06nrmlf"
+  },
+  "schemaVersion": "1.0.0",
+  "socialProfiles": {
+    "status": "USER_DECISION_REQUIRED",
+    "value": []
+  },
+  "status": "PASS_WITH_EXTERNAL_VERIFICATION_REQUIRED",
+  "websiteUrl": {
+    "status": "USER_DECISION_REQUIRED",
+    "value": null
+  }
+}
