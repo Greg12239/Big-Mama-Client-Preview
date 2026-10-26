@@ -1923,7 +1923,7 @@ p {
     0 0 14px rgba(255, 84, 0, 0.055);
   color: var(--charcoal);
   cursor: pointer;
-  opacity: 0.78;
+  opacity: 1;
   outline: none;
   transform-origin: 50% 55%;
   transition:
@@ -2251,6 +2251,22 @@ p {
 
   .reviews-visual__image {
     width: min(100%, clamp(360px, 44vw, 520px));
+  }
+}
+
+@media (min-width: 901px) {
+  .reviews-layout {
+    grid-template-columns: minmax(260px, 0.31fr) minmax(0, 0.69fr);
+    gap: clamp(24px, 2.5vw, 48px);
+  }
+
+  .reviews-visual {
+    justify-content: flex-start;
+  }
+
+  .reviews-visual__image {
+    width: min(100%, 440px);
+    margin: 0;
   }
 }
 
@@ -3832,6 +3848,24 @@ p {
 
 .location-hours__time {
   white-space: nowrap;
+}
+
+@media (min-width: 901px) {
+  .location-contact-row--hours .location-contact-row__label {
+    display: none;
+  }
+
+  .location-hours {
+    grid-template-columns: max-content max-content;
+    column-gap: 12px;
+    row-gap: 6px;
+    justify-content: start;
+    width: max-content;
+  }
+
+  .location-hours__row {
+    display: contents;
+  }
 }
 
 .location-social-actions {
@@ -6904,6 +6938,16 @@ h2 {
   min-width: 132px;
   font-size: 0.82rem;
   letter-spacing: 0.01em;
+}
+
+#menu .menu-category-tab[data-menu-tab="kids"] {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#menu .menu-category-tab[data-menu-tab="burgers"] {
+  grid-column: 4;
+  grid-row: 1;
 }
 
 #menu .menu-category-tab__label {

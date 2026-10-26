@@ -118,7 +118,6 @@
 
 .reviews-deck.is-dragging .reviews-orbit__slot,
 .reviews-deck.is-settling .reviews-orbit__slot {
-  z-index: auto;
   pointer-events: none;
 }
 
@@ -431,7 +430,6 @@
 
   .reviews-deck.is-dragging .reviews-orbit__slot,
   .reviews-deck.is-settling .reviews-orbit__slot {
-    z-index: auto;
     pointer-events: none;
   }
 

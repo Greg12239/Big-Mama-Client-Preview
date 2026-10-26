@@ -225,6 +225,26 @@
         });
       }
 
+      for (let fromStep = 0; fromStep < this.cards.length; fromStep += 1) {
+        const targetStep = fromStep + 1;
+        for (let frame = 0; frame <= 12; frame += 1) {
+          const progress = this.easedProgress(frame / 12);
+          this.cards.forEach((_, index) => {
+            const pose = this.calculateTransitionPose(
+              index,
+              fromStep,
+              targetStep,
+              progress,
+              metrics,
+            );
+            maximumBottom = Math.max(
+              maximumBottom,
+              pose.y + this.cardNaturalHeights[index] * pose.scale,
+            );
+          });
+        }
+      }
+
       this.deck.style.setProperty(
         "--review-scene-height",
         `${Math.ceil(maximumBottom + 48)}px`,
@@ -241,7 +261,12 @@
           depthRadius: 24,
           safeTop: 24,
           scaleReduction: 0.3,
-          opacityReduction: 0.45,
+          rearScaleBoost: 0.06,
+          rearCurvePower: 2,
+          horseshoeSpread: 0,
+          rearVerticalOffset: 0,
+          transitionLift: clamp(28, width * 0.08, 44),
+          transitionDepth: 36,
           maxYaw: 0,
           maxRoll: 0,
           pixelXCorrection: this.pixelXCorrection,
@@ -250,16 +275,44 @@
       }
 
       const cardWidth = this.cardWidth || Math.min(440, width * 0.78);
-      const sideScale = 1 - ((1 - Math.cos((Math.PI * 2) / this.cards.length)) / 2) * 0.24;
-      const maxSideOffset = Math.max(0, (width - cardWidth * sideScale) / 2 - 12);
+      const deckRect = this.deck.getBoundingClientRect();
+      const viewportWidth = window.visualViewport?.width || window.innerWidth;
+      const centerX = deckRect.left + deckRect.width / 2;
+      const viewportClearance = Math.max(0, Math.min(centerX, viewportWidth - centerX) - 10);
+      const sideDepth = (1 - Math.cos((Math.PI * 2) / this.cards.length)) / 2;
+      const rearDepth = (1 - Math.cos((Math.PI * 4) / this.cards.length)) / 2;
+      const sideScale = 1 - sideDepth * 0.24;
+      const desiredRearGap = clamp(12, width * 0.025, 24);
+      const rearScaleLimit = (viewportClearance - desiredRearGap / 2) / cardWidth;
+      const rearScale = clamp(0.42, Math.min(0.66, rearScaleLimit), 0.66);
+      const rearWidth = cardWidth * rearScale;
+      const rearOffset = rearWidth / 2 + desiredRearGap / 2;
+      const sideOffsetLimit = Math.max(0, viewportClearance - (cardWidth * sideScale) / 2 - 16);
+      const sideOffset = clamp(0, Math.min(96, sideOffsetLimit), 96);
+      const rearCurvePower = 2;
+      const sideCurve = sideDepth ** rearCurvePower;
+      const rearCurve = rearDepth ** rearCurvePower;
+      const rearBaseScale = 1 - rearDepth * 0.24;
+      const sideAngle = (Math.PI * 2) / this.cards.length;
+      const rearAngle = (Math.PI * 4) / this.cards.length;
+      const horseshoeSpread = Math.max(
+        0,
+        (rearOffset / Math.sin(rearAngle) - sideOffset / Math.sin(sideAngle))
+          / (rearCurve - sideCurve),
+      );
 
       return {
-        radiusX: clamp(0, Math.min(width * 0.34, maxSideOffset / Math.sin((Math.PI * 2) / this.cards.length)), 190),
+        radiusX: Math.max(0, sideOffset / Math.sin(sideAngle) - horseshoeSpread * sideCurve),
         radiusY: clamp(82, width * 0.18, 112),
         depthRadius: 32,
         safeTop: 18,
         scaleReduction: 0.24,
-        opacityReduction: 0.34,
+        rearScaleBoost: Math.max(0, (rearBaseScale - rearScale) / rearCurve),
+        rearCurvePower,
+        horseshoeSpread,
+        rearVerticalOffset: 8,
+        transitionLift: clamp(52, this.maxNaturalCardHeight * 0.2, 86),
+        transitionDepth: 56,
         maxYaw: 0,
         maxRoll: 0,
         pixelXCorrection: this.pixelXCorrection,
@@ -272,16 +325,60 @@
       const cosine = Math.cos(theta);
       const sine = Math.sin(theta);
       const depthFactor = (1 - cosine) / 2;
+      const horseshoeFactor = depthFactor ** (metrics.rearCurvePower || 2);
 
       return {
-        x: sine * metrics.radiusX + metrics.pixelXCorrection,
-        y: metrics.safeTop + metrics.pixelYCorrection + (1 - cosine) * metrics.radiusY,
+        x: sine * (metrics.radiusX + (metrics.horseshoeSpread || 0) * horseshoeFactor) + metrics.pixelXCorrection,
+        y: metrics.safeTop + metrics.pixelYCorrection + (1 - cosine) * metrics.radiusY + (metrics.rearVerticalOffset || 0) * horseshoeFactor,
         z: (cosine - 1) * metrics.depthRadius,
-        scale: 1 - depthFactor * metrics.scaleReduction,
-        opacity: 1 - depthFactor * metrics.opacityReduction,
+        scale: 1 - depthFactor * metrics.scaleReduction - (metrics.rearScaleBoost || 0) * horseshoeFactor,
+        opacity: 1,
         yaw: -sine * metrics.maxYaw,
         roll: sine * metrics.maxRoll,
       };
+    }
+
+    interpolatePose(fromPose, toPose, progress) {
+      const mix = (from, to) => from + (to - from) * progress;
+      return {
+        x: mix(fromPose.x, toPose.x),
+        y: mix(fromPose.y, toPose.y),
+        z: mix(fromPose.z, toPose.z),
+        scale: mix(fromPose.scale, toPose.scale),
+        opacity: mix(fromPose.opacity, toPose.opacity),
+        yaw: mix(fromPose.yaw, toPose.yaw),
+        roll: mix(fromPose.roll, toPose.roll),
+      };
+    }
+
+    calculateTransitionPose(index, fromStep, toStep, progress, metrics) {
+      const sourcePose = this.calculatePose(index, fromStep, metrics);
+      const targetPose = this.calculatePose(index, toStep, metrics);
+      const sourceActiveIndex = this.normalizeIndex(Math.round(fromStep));
+      const targetActiveIndex = this.normalizeIndex(Math.round(toStep));
+      const outgoing = index === sourceActiveIndex && sourceActiveIndex !== targetActiveIndex;
+      const incoming = index === targetActiveIndex && sourceActiveIndex !== targetActiveIndex;
+      const sourceRelative = this.relativeAt(index, Math.round(fromStep));
+      const targetRelative = this.relativeAt(index, Math.round(toStep));
+      const wrapsBehindOrbit = Math.abs(sourceRelative) === 2 && Math.abs(targetRelative) === 2;
+      const clampProgress = (value) => Math.min(1, Math.max(0, value));
+
+      let localProgress = progress;
+      if (outgoing) {
+        localProgress = clampProgress(progress / 0.72);
+      } else if (incoming) {
+        localProgress = clampProgress((progress - 0.18) / 0.82);
+      }
+
+      const pose = this.interpolatePose(sourcePose, targetPose, localProgress);
+      if (wrapsBehindOrbit) {
+        const laneProgress = Math.sin(Math.PI * progress);
+        pose.y += laneProgress * metrics.transitionLift;
+        pose.z -= laneProgress * metrics.transitionDepth;
+        pose.scale = Math.max(0.42, pose.scale - laneProgress * 0.08);
+      }
+
+      return pose;
     }
 
     poseTransform(pose) {
@@ -302,15 +399,83 @@
       return {
         offset,
         transform: this.poseTransform(pose),
-        opacity: pose.opacity,
       };
+    }
+
+    transitionPoseFrame(index, fromStep, toStep, progress, metrics) {
+      const pose = this.calculateTransitionPose(index, fromStep, toStep, progress, metrics);
+      return {
+        offset: progress,
+        transform: this.poseTransform(pose),
+      };
+    }
+
+    easedProgress(progress) {
+      if (progress <= 0 || progress >= 1) return progress;
+
+      const x1 = 0.16;
+      const y1 = 1;
+      const x2 = 0.3;
+      const y2 = 1;
+      const sampleX = (t) => 3 * (1 - t) ** 2 * t * x1
+        + 3 * (1 - t) * t ** 2 * x2 + t ** 3;
+      const sampleY = (t) => 3 * (1 - t) ** 2 * t * y1
+        + 3 * (1 - t) * t ** 2 * y2 + t ** 3;
+      const sampleDerivative = (t) => 3 * (1 - t) ** 2 * x1
+        + 6 * (1 - t) * t * (x2 - x1) + 3 * t ** 2 * (1 - x2);
+
+      let estimate = progress;
+      for (let iteration = 0; iteration < 5; iteration += 1) {
+        const derivative = sampleDerivative(estimate);
+        if (Math.abs(derivative) < 0.0001) break;
+        estimate -= (sampleX(estimate) - progress) / derivative;
+        estimate = Math.min(1, Math.max(0, estimate));
+      }
+
+      return sampleY(estimate);
+    }
+
+    depthZIndex(pose, index) {
+      return String(100000 + Math.round(pose.z * 1000) - index);
+    }
+
+    transitionZIndex(index, fromStep, toStep, progress, metrics) {
+      const pose = this.calculateTransitionPose(index, fromStep, toStep, progress, metrics);
+      const sourceActiveIndex = this.normalizeIndex(Math.round(fromStep));
+      const targetActiveIndex = this.normalizeIndex(Math.round(toStep));
+      const ownershipProgress = 0.66;
+
+      if (index === sourceActiveIndex && sourceActiveIndex !== targetActiveIndex && progress < ownershipProgress) {
+        return String(200000 - Math.round(progress * 1000) - index);
+      }
+
+      if (index === targetActiveIndex && sourceActiveIndex !== targetActiveIndex && progress >= ownershipProgress) {
+        return String(200000 + Math.round(progress * 1000) - index);
+      }
+
+      return this.depthZIndex(pose, index);
     }
 
     applyPose(index, step, metrics) {
       const pose = this.calculatePose(index, step, metrics);
       const slot = this.slots[index];
       slot.style.transform = this.poseTransform(pose);
-      slot.style.opacity = String(pose.opacity);
+      slot.style.opacity = "1";
+      slot.style.zIndex = this.depthZIndex(pose, index);
+    }
+
+    syncInterpolatedLayerOrder(step, metrics = this.metrics(), transition = null) {
+      this.slots.forEach((slot, index) => {
+        slot.style.zIndex = transition
+          ? this.transitionZIndex(
+            index,
+            transition.fromStep,
+            transition.toStep,
+            transition.progress,
+            metrics,
+          )
+          : this.depthZIndex(this.calculatePose(index, step, metrics), index);
+      });
     }
 
     applyAllPoses(step, metrics = this.metrics(), updateDetails = false) {
@@ -319,16 +484,9 @@
       this.cards.forEach((card, index) => {
         this.applyPose(index, step, metrics);
         if (updateDetails) {
-          const pose = this.calculatePose(index, step, metrics);
-          this.setDetailOpacity(card, this.detailOpacityForPose(pose, metrics));
+          this.setDetailOpacity(card, 1);
         }
       });
-    }
-
-    detailOpacityForPose(pose, metrics) {
-      const scaleReduction = Math.max(Number.EPSILON, metrics.scaleReduction);
-      const depth = Math.min(1, Math.max(0, (1 - pose.scale) / scaleReduction));
-      return 1 - depth * 0.3;
     }
 
     setDetailOpacity(card, opacity) {
@@ -346,11 +504,7 @@
         return;
       }
 
-      const metrics = this.metrics();
-      this.cards.forEach((card, index) => {
-        const pose = this.calculatePose(index, step, metrics);
-        this.setDetailOpacity(card, this.detailOpacityForPose(pose, metrics));
-      });
+      this.cards.forEach((card) => this.setDetailOpacity(card, 1));
     }
 
     syncVisualStates() {
@@ -432,29 +586,14 @@
     buildKeyframes(index, fromStep, toStep, metrics) {
       const frameCount = 13;
       return Array.from({ length: frameCount }, (_, frame) => {
-        const progress = frame / (frameCount - 1);
-        return this.poseFrame(
+        const progress = this.easedProgress(frame / (frameCount - 1));
+        return this.transitionPoseFrame(
           index,
-          fromStep + (toStep - fromStep) * progress,
+          fromStep,
+          toStep,
           progress,
           metrics,
         );
-      });
-    }
-
-    buildDetailKeyframes(index, fromStep, toStep, metrics) {
-      const frameCount = 13;
-      return Array.from({ length: frameCount }, (_, frame) => {
-        const progress = frame / (frameCount - 1);
-        const pose = this.calculatePose(
-          index,
-          fromStep + (toStep - fromStep) * progress,
-          metrics,
-        );
-        return {
-          offset: progress,
-          opacity: this.detailOpacityForPose(pose, metrics),
-        };
       });
     }
 
@@ -462,13 +601,18 @@
       return 620;
     }
 
-    startProgressClock(generation, fromStep, targetStep, duration) {
+    startProgressClock(generation, fromStep, targetStep, duration, metrics) {
       const startedAt = performance.now();
       const tick = (now) => {
         if (generation !== this.animationGeneration || this.phase !== "settling") return;
         const progress = Math.min(1, Math.max(0, (now - startedAt) / duration));
-        const eased = 1 - Math.pow(1 - progress, 4);
+        const eased = this.easedProgress(progress);
         this.visualStep = fromStep + (targetStep - fromStep) * eased;
+        this.syncInterpolatedLayerOrder(this.visualStep, metrics, {
+          fromStep,
+          toStep: targetStep,
+          progress: eased,
+        });
         if (progress < 1) this.settleProgressFrame = requestAnimationFrame(tick);
       };
       this.settleProgressFrame = requestAnimationFrame(tick);
@@ -494,8 +638,9 @@
       const generation = ++this.animationGeneration;
       this.currentTargetStep = target;
       this.setPhase("settling");
+      this.syncInterpolatedLayerOrder(fromStep, metrics);
       this.slots.forEach((slot) => {
-        slot.style.willChange = "transform, opacity";
+        slot.style.willChange = "transform";
       });
 
       const slotAnimations = this.slots.map((slot, index) => slot.animate(
@@ -506,19 +651,9 @@
           fill: "both",
         },
       ));
-      const detailAnimations = this.detailGroups.flatMap((group, index) => group.map(
-        (element) => element.animate(
-          this.buildDetailKeyframes(index, fromStep, target, metrics),
-          {
-            duration,
-            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-            fill: "both",
-          },
-        ),
-      ));
-      this.activeAnimations = [...slotAnimations, ...detailAnimations];
+      this.activeAnimations = slotAnimations;
       this.syncStateAttributes();
-      this.startProgressClock(generation, fromStep, target, duration);
+      this.startProgressClock(generation, fromStep, target, duration, metrics);
 
       const finished = Promise.allSettled(
         this.activeAnimations.map((animation) => animation.finished),
@@ -611,7 +746,7 @@
 
     setTemporaryWillChange(enabled) {
       this.slots.forEach((slot) => {
-        if (enabled) slot.style.willChange = "transform, opacity";
+        if (enabled) slot.style.willChange = "transform";
         else slot.style.removeProperty("will-change");
       });
     }

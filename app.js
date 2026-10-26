@@ -969,6 +969,24 @@ class MenuCategoryController {
     });
   }
 
+  getOrderedTabs() {
+    if (usesNativeCategoryRail()) return this.tabs;
+
+    const desktopOrder = new Map([
+      ["appetizers", 0],
+      ["fries", 1],
+      ["kids", 2],
+      ["burgers", 3],
+      ["sauces", 4],
+      ["cookies", 5],
+      ["drinks", 6],
+    ]);
+
+    return [...this.tabs].sort((left, right) => (
+      desktopOrder.get(left.dataset.menuTab) - desktopOrder.get(right.dataset.menuTab)
+    ));
+  }
+
   handleTabClick(tab) {
     const key = tab.dataset.menuTab;
     if (!key) return;
@@ -987,13 +1005,14 @@ class MenuCategoryController {
   }
 
   handleTabKeydown(event, tab) {
-    const currentIndex = this.tabs.indexOf(tab);
+    const orderedTabs = this.getOrderedTabs();
+    const currentIndex = orderedTabs.indexOf(tab);
     let nextIndex = currentIndex;
 
-    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % this.tabs.length;
-    else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + this.tabs.length) % this.tabs.length;
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % orderedTabs.length;
+    else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + orderedTabs.length) % orderedTabs.length;
     else if (event.key === "Home") nextIndex = 0;
-    else if (event.key === "End") nextIndex = this.tabs.length - 1;
+    else if (event.key === "End") nextIndex = orderedTabs.length - 1;
     else if (event.key === "ArrowDown" && tab === burgerTab) {
       event.preventDefault();
       this.openBurgerPopover();
@@ -1004,7 +1023,7 @@ class MenuCategoryController {
     }
 
     event.preventDefault();
-    const nextTab = this.tabs[nextIndex];
+    const nextTab = orderedTabs[nextIndex];
     nextTab.focus({ preventScroll: true });
     this.selectTopCategory(nextTab.dataset.menuTab);
   }
@@ -1255,7 +1274,7 @@ class MenuCategoryController {
     const state = this.railState;
     state.maxScrollLeft = Math.max(0, menuCategorySwitcher.scrollWidth - menuCategorySwitcher.clientWidth);
     const railCentre = menuCategorySwitcher.clientWidth * 0.5;
-    state.railCategories = this.tabs.map((tab) => {
+    state.railCategories = this.getOrderedTabs().map((tab) => {
       const centre = tab.offsetLeft + tab.offsetWidth * 0.5;
       return {
         key: tab.dataset.menuTab,
@@ -2014,8 +2033,9 @@ class MenuCategoryController {
   startTopCategoryTransition(key, nextPanel, generation, { railAlreadyAligned = false } = {}) {
 
     const currentPanel = this.panels.find((panel) => panel.dataset.menuPanel === this.activeTop);
-    const previousIndex = this.tabs.findIndex((tab) => tab.dataset.menuTab === this.activeTop);
-    const nextIndex = this.tabs.findIndex((tab) => tab.dataset.menuTab === key);
+    const orderedTabs = this.getOrderedTabs();
+    const previousIndex = orderedTabs.findIndex((tab) => tab.dataset.menuTab === this.activeTop);
+    const nextIndex = orderedTabs.findIndex((tab) => tab.dataset.menuTab === key);
     const railDirection = nextIndex > previousIndex ? "forward" : nextIndex < previousIndex ? "backward" : "neutral";
 
     closeActiveOrderChooser();
@@ -2025,7 +2045,7 @@ class MenuCategoryController {
     this.updateTitle();
     this.updateStatus();
 
-    if (!railAlreadyAligned && !usesNativeCategoryRail()) this.moveCategoryRail(this.tabs[nextIndex], railDirection);
+    if (!railAlreadyAligned && !usesNativeCategoryRail()) this.moveCategoryRail(orderedTabs[nextIndex], railDirection);
     this.transitionPanels({
       kind: "top",
       currentPanel,
